@@ -11,7 +11,7 @@ public class DeliveryMan extends User{
         this.zonaCobertura = builder.zonaCobertura;
     }
 
-
+//MODIFICAR, QUITAR BUILDER
     public static class Builder<T extends Builder<T>> extends User.Builder<T>{
         private DeliveryManState state;
         private String zonaCobertura;

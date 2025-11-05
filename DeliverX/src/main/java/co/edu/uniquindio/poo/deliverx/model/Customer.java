@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Customer extends User{
     private List<Address> listAddresses;
-    private List<Pay> listPaymentMethods;
+    private List<Shipment> shipmentList;
 
     public Customer(Builder<?> builder) {
         super(builder);
         this.listAddresses = new ArrayList<>();
-        this.listPaymentMethods= new ArrayList<>();
+        this.shipmentList = new ArrayList<>();
     }
 
 
@@ -32,11 +32,11 @@ public class Customer extends User{
         this.listAddresses = listAddresses;
     }
 
-    public List<Pay> getListPaymentMethods() {
-        return listPaymentMethods;
+    public List<Shipment> getShipmentList() {
+        return shipmentList;
     }
 
-    public void setListPaymentMethods(List<Pay> listPaymentMethods) {
-        this.listPaymentMethods = listPaymentMethods;
+    public void setShipmentList(List<Shipment> shipmentList) {
+        this.shipmentList = shipmentList;
     }
 }
