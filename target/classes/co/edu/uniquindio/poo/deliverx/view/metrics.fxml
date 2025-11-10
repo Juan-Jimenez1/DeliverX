@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.poo.deliverx.Controller.MetricsController">
+    <AnchorPane prefHeight="800.0" prefWidth="650.0">
+        <VBox layoutX="25.0" layoutY="25.0" prefWidth="600.0" spacing="20.0">
+
+            <!-- Título Principal -->
+            <HBox alignment="CENTER_LEFT" spacing="20.0">
+                <Label text="Panel de Métricas y Análisis" style="-fx-font-weight: bold;">
+                    <font><Font size="24.0"/></font>
+                </Label>
+                <Button text=" Actualizar" onAction="#handleRefresh"
+                        style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-background-radius: 5;">
+                    <font><Font size="12.0"/></font>
+                </Button>
+            </HBox>
+
+            <Separator prefWidth="600.0" />
+
+            <!-- SECCIÓN 1: TARJETAS DE RESUMEN -->
+            <Label text="Resumen General" style="-fx-font-weight: bold;">
+                <font><Font size="18.0"/></font>
+            </Label>
+
+            <GridPane hgap="15.0" vgap="15.0" prefWidth="600.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="185.0" prefWidth="185.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="185.0" prefWidth="185.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="185.0" prefWidth="185.0" />
+                </columnConstraints>
+
+                <!-- Total Usuarios -->
+                <AnchorPane style="-fx-background-color: #3498DB; -fx-background-radius: 10;" prefHeight="90.0"
+                            GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <VBox alignment="CENTER" layoutX="20.0" layoutY="15.0" spacing="8.0">
+                        <Label text="Total Usuarios" textFill="white" style="-fx-font-weight: bold;">
+                            <font><Font size="13.0"/></font>
+                        </Label>
+                        <Label fx:id="totalUsersLabel" text="0" textFill="white" style="-fx-font-weight: bold;">
+                            <font><Font size="28.0"/></font>
+                        </Label>
+                    </VBox>
+                </AnchorPane>
+
+                <!-- Total Envíos -->
+                <AnchorPane style="-fx-background-color: #9B59B6; -fx-background-radius: 10;" prefHeight="90.0"
+                            GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <VBox alignment="CENTER" layoutX="20.0" layoutY="15.0" spacing="8.0">
+                        <Label text="Total Envíos" textFill="white" style="-fx-font-weight: bold;">
+                            <font><Font size="13.0"/></font>
+                        </Label>
+                        <Label fx:id="totalEnviosLabel" text="0" textFill="white" style="-fx-font-weight: bold;">
+                            <font><Font size="28.0"/></font>
+                        </Label>
+                    </VBox>
+                </AnchorPane>
+
+                <!-- Repartidores Activos -->
+                <AnchorPane style="-fx-background-color: #27AE60; -fx-background-radius: 10;" prefHeight="90.0"
+                            GridPane.columnIndex="2" GridPane.rowIndex="0">
+                    <VBox alignment="CENTER" layoutX="20.0" layoutY="15.0" spacing="8.0">
+                        <Label text="Repartidores Activos" textFill="white" style="-fx-font-weight: bold;">
+                            <font><Font size="13.0"/></font>
+                        </Label>
+                        <Label fx:id="activeDeliveriesLabel" text="0" textFill="white" style="-fx-font-weight: bold;">
+                            <font><Font size="28.0"/></font>
+                        </Label>
+                    </VBox>
+                </AnchorPane>
+
+                <!-- Ingresos Totales -->
+                <AnchorPane style="-fx-background-color: #F39C12; -fx-background-radius: 10;" prefHeight="90.0"
+                            GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <VBox alignment="CENTER" layoutX="20.0" layoutY="15.0" spacing="8.0">
+                        <Label text="Ingresos Totales" textFill="white" style="-fx-font-weight: bold;">
+                            <font><Font size="13.0"/></font>
+                        </Label>
+                        <Label fx:id="ingresosLabel" text="0" textFill="white" style="-fx-font-weight: bold;">
+                            <font><Font size="26.0"/></font>
+                        </Label>
+                    </VBox>
+                </AnchorPane>
+
+                <!-- Tiempo Promedio Entrega -->
+                <AnchorPane style="-fx-background-color: #E67E22; -fx-background-radius: 10;" prefHeight="90.0"
+                            GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <VBox alignment="CENTER" layoutX="20.0" layoutY="15.0" spacing="8.0">
+                        <Label text="Tiempo Prom. Entrega" textFill="white" style="-fx-font-weight: bold;">
+                            <font><Font size="13.0"/></font>
+                        </Label>
+                        <Label fx:id="tiempoPromedioLabel" text="0 hrs" textFill="white" style="-fx-font-weight: bold;">
+                            <font><Font size="26.0"/></font>
+                        </Label>
+                    </VBox>
+                </AnchorPane>
+
+                <!-- Total Incidencias -->
+                <AnchorPane style="-fx-background-color: #E74C3C; -fx-background-radius: 10;" prefHeight="90.0"
+                            GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <VBox alignment="CENTER" layoutX="20.0" layoutY="15.0" spacing="8.0">
+                        <Label text="Total Incidencias" textFill="white" style="-fx-font-weight: bold;">
+                            <font><Font size="13.0"/></font>
+                        </Label>
+                        <Label fx:id="incidenciasLabel" text="0" textFill="white" style="-fx-font-weight: bold;">
+                            <font><Font size="28.0"/></font>
+                        </Label>
+                    </VBox>
+                </AnchorPane>
+            </GridPane>
+
+            <Separator prefWidth="600.0" />
+
+            <!-- SECCIÓN 2: GRÁFICOS -->
+
+            <!-- Ingresos por Período -->
+            <Label text="Ingresos por Período (Últimos 30 días)" style="-fx-font-weight: bold;">
+                <font><Font size="16.0"/></font>
+            </Label>
+
+            <LineChart fx:id="ingresosChart" prefHeight="200.0" prefWidth="600.0" legendVisible="true">
+                <xAxis>
+                    <CategoryAxis side="BOTTOM" label="Fecha" fx:id="ingresoXAxis"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis side="LEFT" label="Ingresos ($)" fx:id="ingresoYAxis"/>
+                </yAxis>
+            </LineChart>
+
+            <Separator prefWidth="600.0" />
+
+            <!-- Servicios Adicionales Más Usados -->
+            <Label text="Servicios Adicionales Más Usados" style="-fx-font-weight: bold;">
+                <font><Font size="16.0"/></font>
+            </Label>
+
+            <PieChart fx:id="serviciosChart" prefHeight="250.0" prefWidth="600.0" legendVisible="true"/>
+
+            <Separator prefWidth="600.0" />
+
+            <!-- Incidencias por Zona -->
+            <Label text="Incidencias por Zona" style="-fx-font-weight: bold;">
+                <font><Font size="16.0"/></font>
+            </Label>
+
+            <BarChart fx:id="incidenciasChart" prefHeight="250.0" prefWidth="600.0" legendVisible="false">
+                <xAxis>
+                    <CategoryAxis side="BOTTOM" label="Zona" fx:id="incidenciaXAxis"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis side="LEFT" label="Cantidad" fx:id="incidenciaYAxis"/>
+                </yAxis>
+            </BarChart>
+
+            <Separator prefWidth="600.0" />
+
+            <!-- Distribución de Envíos por Estado -->
+            <Label text="Estado de Envíos" style="-fx-font-weight: bold;">
+                <font><Font size="16.0"/></font>
+            </Label>
+
+            <BarChart fx:id="estadoEnviosChart" prefHeight="200.0" prefWidth="600.0" legendVisible="false">
+                <xAxis>
+                    <CategoryAxis side="BOTTOM" label="Estado" fx:id="estadoXAxis"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis side="LEFT" label="Cantidad" fx:id="estadoYAxis"/>
+                </yAxis>
+            </BarChart>
+
+            <Separator prefWidth="600.0" />
+
+            <!-- SECCIÓN 3: TABLA DE DETALLES -->
+            <Label text="Top Servicios Adicionales" style="-fx-font-weight: bold;">
+                <font><Font size="16.0"/></font>
+            </Label>
+
+            <TableView fx:id="serviciosTable" prefHeight="180.0" prefWidth="600.0">
+                <columns>
+                    <TableColumn fx:id="servicioColumn" text="Servicio" prefWidth="250.0"/>
+                    <TableColumn fx:id="usosColumn" text="Usos" prefWidth="100.0"/>
+                    <TableColumn fx:id="ingresosServicioColumn" text="Ingresos" prefWidth="150.0"/>
+                    <TableColumn fx:id="porcentajeColumn" text="%" prefWidth="100.0"/>
+                </columns>
+            </TableView>
+
+            <Separator prefWidth="600.0" />
+
+            <!-- Botones de Acción -->
+            <HBox spacing="15.0" alignment="CENTER">
+                <Button text="Exportar Reporte PDF" onAction="#handleExportReport" prefWidth="200.0" prefHeight="40.0"
+                        style="-fx-background-color: #CC5E13; -fx-text-fill: white; -fx-background-radius: 5;">
+                    <font><Font size="14.0"/></font>
+                </Button>
+                <Button text="Reporte Detallado" onAction="#handleDetailedReport" prefWidth="200.0" prefHeight="40.0"
+                        style="-fx-background-color: #8E44AD; -fx-text-fill: white; -fx-background-radius: 5;">
+                    <font><Font size="14.0"/></font>
+                </Button>
+            </HBox>
+
+            <!-- Espacio al final -->
+            <Region prefHeight="30.0"/>
+
+        </VBox>
+    </AnchorPane>
+</ScrollPane>
