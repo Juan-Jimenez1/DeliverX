@@ -1,5 +1,6 @@
 package co.edu.uniquindio.poo.deliverx.app;
 
+import co.edu.uniquindio.poo.deliverx.model.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,5 +16,15 @@ public class App extends Application {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
+    }
+
+    public static void main(String[] args) {
+        Admin admin = new Admin.Builder<>().userId("0").name("Juan").password("1").email("").phoneNumber("962600000").build();
+        System.out.println(admin);
+        DeliverX deliverX= DeliverX.getInstance();
+
+        deliverX.registerAdmin(admin);
+
+        deliverX.loginUser(admin.getUserId(), admin.getPassword());
     }
 }

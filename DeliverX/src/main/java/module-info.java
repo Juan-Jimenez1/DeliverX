@@ -1,6 +1,7 @@
 module co.edu.uniquindio.poo.deliverx {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
     exports co.edu.uniquindio.poo.deliverx.app;
