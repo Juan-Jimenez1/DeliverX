@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.deliverx.Controller.DeliveryManagementController">
+
+    <VBox layoutX="25.0" layoutY="25.0" prefWidth="600.0" spacing="20.0">
+        <Label text="Gestión de Repartidores" style="-fx-font-weight: bold;">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+
+        <HBox spacing="15.0" alignment="CENTER_LEFT">
+            <TextField fx:id="searchField" promptText="Buscar por ID o nombre" prefWidth="250.0"
+                       style="-fx-background-radius: 5;"/>
+            <Button text="Buscar" onAction="#handleSearch" prefWidth="90.0"
+                    style="-fx-background-color: #CC5E13; -fx-text-fill: white; -fx-background-radius: 5;"/>
+            <ComboBox fx:id="filterStateComboBox" promptText="Filtrar por estado" prefWidth="150.0"
+                      style="-fx-background-radius: 5;"/>
+            <Button text="Actualizar" onAction="#handleRefresh" prefWidth="90.0"
+                    style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-background-radius: 5;"/>
+        </HBox>
+
+        <TableView fx:id="deliveryTable" prefHeight="350.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="deliveryIdColumn" text="ID" prefWidth="80.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="userId" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="nameColumn" text="Nombre" prefWidth="120.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="emailColumn" text="Correo" prefWidth="130.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="email" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="phoneColumn" text="Teléfono" prefWidth="100.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="phoneNumber" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="stateColumn" text="Estado" prefWidth="80.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="state" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="zonaColumn" text="Zona" prefWidth="90.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="zonaCobertura" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+
+        <HBox spacing="12.0" alignment="CENTER">
+            <Button text="Ver Detalles" onAction="#handleViewDetails" prefWidth="110.0"
+                    style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-background-radius: 5;"/>
+            <Button text="Editar" onAction="#handleEdit" prefWidth="110.0"
+                    style="-fx-background-color: #F39C12; -fx-text-fill: white; -fx-background-radius: 5;"/>
+            <Button text="Cambiar Estado" onAction="#handleChangeState" prefWidth="120.0"
+                    style="-fx-background-color: #9B59B6; -fx-text-fill: white; -fx-background-radius: 5;"/>
+            <Button text="Eliminar" onAction="#handleDelete" prefWidth="110.0"
+                    style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-background-radius: 5;"/>
+        </HBox>
+
+        <Label fx:id="statusLabel" textFill="#2C3E50">
+            <font><Font size="12.0"/></font>
+        </Label>
+    </VBox>
+</AnchorPane>
