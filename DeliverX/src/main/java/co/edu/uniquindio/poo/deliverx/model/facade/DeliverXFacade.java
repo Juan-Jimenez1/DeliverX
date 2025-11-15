@@ -194,7 +194,7 @@ public class DeliverXFacade {
         if (services == null || services.isEmpty()) {
             return component;
         }
-
+        // No hay necesidad de duplicacion de parametros ya que no sabemos si vamos a recibir un string o un booleano
         for (String service : services) {
             component = switch (service.toUpperCase()) {
                 case "INSURANCE SHIPMENT", "INSURANCE" -> new InsuranceDecorator(component);
@@ -215,6 +215,9 @@ public class DeliverXFacade {
 //        return processor.processPayment(paymentId, amount, method);
 //    }
 
+
+    //Se puede quitar de aqui, se puede poner como un metodo normal ya que no hay
+    // necesidad porque no hay muchos procesos por hacer
 private Pay processPayment(String paymentId, double amount, PaymentMethod method) {
     System.out.println(" Processing payment via " + method + ": $" + amount);
 

@@ -18,7 +18,7 @@ public class DsitanceBasedStrategy implements RateStrategy {
     }
 
     //Pregúntarle a juan José
-
+    // Que buena pregunta
     private double calculateDistance(Address origin, Address destination) {
         double lat1 = Double.parseDouble(origin.getLatitude());
         double lon1 = Double.parseDouble(origin.getLongitude());
