@@ -1,5 +1,6 @@
 package co.edu.uniquindio.poo.deliverx.model;
-
+import co.edu.uniquindio.poo.deliverx.model.state.RequestedState;
+import co.edu.uniquindio.poo.deliverx.model.state.ShipmentState;
 import java.time.LocalDate;
 
 public class Shipment {
@@ -11,6 +12,7 @@ public class Shipment {
     private Customer customer;
     private Pay pay;
     private LocalDate dateTime;
+    private ShipmentState currentState;
 
 
     public Shipment(String idShipment, Address origin, Address destination, double weight, DeliveryMan deliveryMan, Customer customer, Pay pay, LocalDate dateTime) {
@@ -22,6 +24,20 @@ public class Shipment {
         this.customer = customer;
         this.pay = pay;
         this.dateTime = dateTime;
+        this.currentState = new RequestedState();
+    }
+
+    public boolean changeState(ShipmentState newState) {
+        if (currentState.canTransitionTo(newState)) {
+            ShipmentState oldState = this.currentState;
+            this.currentState = newState;
+            this.currentState.handle(this);
+            return true;
+        } else {
+            System.out.println("Non-allowed state transition: " +
+                    currentState.getStateName() + " → " + newState.getStateName());
+            return false;
+        }
     }
 
     public String getIdShipment() {
@@ -86,5 +102,13 @@ public class Shipment {
 
     public void setDateTime(LocalDate dateTime) {
         this.dateTime = dateTime;
+    }
+
+    public ShipmentState getCurrentState() {
+        return currentState;
+    }
+
+    public void setCurrentState(ShipmentState currentState) {
+        this.currentState = currentState;
     }
 }
