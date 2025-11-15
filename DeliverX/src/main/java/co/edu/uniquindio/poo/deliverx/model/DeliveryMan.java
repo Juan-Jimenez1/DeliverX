@@ -1,9 +1,12 @@
 package co.edu.uniquindio.poo.deliverx.model;
+import co.edu.uniquindio.poo.deliverx.model.state.ActiveState;
+import co.edu.uniquindio.poo.deliverx.model.state.DeliveryManState;
+import co.edu.uniquindio.poo.deliverx.model.state.InRouteDeliveryState;
 
 public class DeliveryMan extends User{
     private DeliveryManState state;
     private String zonaCobertura;
-    private Shipment shipment;
+    private Shipment currentShipment;
 
     private DeliveryMan(Builder<?> builder){
         super(builder);
@@ -11,7 +14,7 @@ public class DeliveryMan extends User{
         this.zonaCobertura = builder.zonaCobertura;
     }
 
-//MODIFICAR, QUITAR BUILDER
+//MODIFICAR, QUITAR BUILDER// No
     public static class Builder<T extends Builder<T>> extends User.Builder<T>{
         private DeliveryManState state;
         private String zonaCobertura;
@@ -30,6 +33,34 @@ public class DeliveryMan extends User{
         public DeliveryMan build() {
             return new DeliveryMan(this);
         }
+    }
+
+    public boolean changeState(DeliveryManState newState) {
+        if (state.canTransitionTo(newState)) {
+            DeliveryManState oldState = this.state;
+            this.state = newState;
+            this.state.handle(this);
+            return true;
+        } else {
+            System.out.println(" Non-allowed state transition: " +
+                    state.getStateName() + " → " + newState.getStateName());
+            return false;
+        }
+    }
+
+    public boolean assignShipment(Shipment shipment) {
+        if (this.currentShipment == null) {
+            this.currentShipment = shipment;
+            changeState(new InRouteDeliveryState());
+            return true;
+        }
+        System.out.println("Deliveryman already has an assigned Shipment");
+        return false;
+    }
+
+    public void completeShipment() {
+        this.currentShipment = null;
+        changeState(new ActiveState());
     }
 
     public DeliveryManState getState() {
