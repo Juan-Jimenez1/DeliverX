@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b603b93a-906b-4e18-aa13-1761e30bff97" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/pdfGenerator/PdfReceiptShipmentReport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/pdfGenerator/PdfShipmentsByStateReport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/pdfGenerator/PdfShipmentsPerMonthReportGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/pdfGenerator/adapter/MonthPdfAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/pdfGenerator/adapter/PdfReportGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/pdfGenerator/adapter/ReceiptPdfAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/pdfGenerator/adapter/StatePdfAdapter.java" beforeDir="false" />
     </list>
     <list id="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" name="Changes by Maria" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +100,7 @@
       <workItem from="1763249856346" duration="4020000" />
       <workItem from="1763255033523" duration="15371000" />
       <workItem from="1763303494320" duration="10640000" />
-      <workItem from="1763315284060" duration="16741000" />
+      <workItem from="1763315284060" duration="17058000" />
     </task>
     <servers />
   </component>
