@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DeliverX {
     private String name;
@@ -82,6 +83,146 @@ public class DeliverX {
         return false;
     }
 
+    public Shipment getShipment (String shipmentID){
+        return listShipments.stream().filter(shipment -> shipment.getIdShipment().equals(shipmentID)).findFirst().orElse(null);
+    }
+//Juan revisa este método
+    public List<Shipment> getShipmentsByCustomer(String customerId){
+        Customer found= null;
+        for (Customer customer : listCustomers) {
+            if (customer.getUserId().equals(customerId)) {
+                found= customer;
+                break;
+            }
+        }
+       if(found!=null){
+            return found.getShipmentList();
+        }else{
+            return new ArrayList<>();
+        }
+    }
+
+    public List<Shipment> getShipmentsByState(String stateName) {
+        return listShipments.stream()
+                .filter(s -> s.getCurrentState().getStateName().equalsIgnoreCase(stateName))
+                .collect(Collectors.toList());
+    }
+
+    public List<Shipment> getShipmentsByMonth(int year, int month) {
+        return listShipments.stream()
+                .filter(s -> s.getDateTime().getYear() == year &&
+                        s.getDateTime().getMonthValue() == month)
+                .collect(Collectors.toList());
+    }
+
+    public boolean updateShipment(String shipmentId, Shipment updatedShipment) {
+        for (int i = 0; i < listShipments.size(); i++) {
+            if (listShipments.get(i).getIdShipment().equals(shipmentId)) {
+                listShipments.set(i, updatedShipment);
+                System.out.println(" Updated shipment " + shipmentId);
+                return true;
+            }
+        }
+        System.out.println(" The shipment could not be updated: " + shipmentId);
+        return false;
+    }
+
+    public boolean deleteShipment(String shipmentId) {
+        Shipment shipment = getShipment(shipmentId);
+        if (shipment == null) {
+            System.out.println(" Shipment not found: " + shipmentId);
+            return false;
+        }
+
+        // Solo se pueden eliminar envíos solicitados o cancelados
+        String state = shipment.getCurrentState().getStateName();
+        if (!state.equals("REQUESTED") && !state.equals("CANCELLED")) {
+            System.out.println(" Can not be deleted: The shipment is on " + state +"state");
+            return false;
+        }
+
+        listShipments.remove(shipment);
+        if (shipment.getCustomer() != null) {
+            shipment.getCustomer().getShipmentList().remove(shipment);
+        }
+
+        System.out.println(" Deleted shipment: " + shipmentId);
+        return true;
+    }
+
+    public Address createAddress(String addressId, String street, String city,
+                                String type, double latitude, double longitude) {
+        Address address = new Address(addressId, street, city, type, latitude,longitude);
+        System.out.println(" Address Created: " + addressId);
+        return address;
+    }
+
+    public boolean addAddressToCustomer(Customer customer, Address address) {
+        if (customer == null || address == null) {
+            System.out.println(" Client or address are null");
+            return false;
+        }
+
+        boolean exists = customer.getListAddresses().stream()
+                .anyMatch(a -> a.getAddressId().equals(address.getAddressId()));
+
+        if (exists) {
+            System.out.println(" The address already exists for this client");
+            return false;
+        }
+
+        customer.getListAddresses().add(address);
+        System.out.println(" Address added to client: " + customer.getName());
+        return true;
+    }
+
+    public Address getAddressFromCustomer(Customer customer, String addressId) {
+        if (customer == null) {
+            return null;
+        }
+        return customer.getListAddresses().stream()
+                .filter(a -> a.getAddressId().equals(addressId))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public List<Address> getCustomerAddresses(Customer customer) {
+        return customer != null ? new ArrayList<>(customer.getListAddresses()) : new ArrayList<>();
+    }
+
+    public boolean updateAddressFromCustomer(Customer customer, String addressId, Address updatedAddress) {
+        if (customer == null) {
+            System.out.println(" Client not found");
+            return false;
+        }
+
+        for (int i = 0; i < customer.getListAddresses().size(); i++) {
+            if (customer.getListAddresses().get(i).getAddressId().equals(addressId)) {
+                customer.getListAddresses().set(i, updatedAddress);
+                System.out.println(" Updated address: " + addressId);
+                return true;
+            }
+        }
+        System.out.println(" Address not found: " + addressId);
+        return false;
+    }
+
+    public boolean deleteAddressFromCustomer(Customer customer, String addressId) {
+        if (customer == null) {
+            System.out.println(" Client not found");
+            return false;
+        }
+
+        Address address = getAddressFromCustomer(customer, addressId);
+        if (address == null) {
+            System.out.println(" Address not found: " + addressId);
+            return false;
+        }
+
+        customer.getListAddresses().remove(address);
+        System.out.println(" Address deleted: " + addressId);
+        return true;
+    }
 
     public void registerDeliveryMan(DeliveryMan deliveryMan) {
         if(!userExists(deliveryMan.getUserId())) {
@@ -153,7 +294,7 @@ public class DeliverX {
         return false;
     }
 
-    private Pay processPayment(String paymentId, double amount, PaymentMethod method) {
+    public Pay processPayment(String paymentId, double amount, PaymentMethod method) {
         System.out.println(" Processing payment via " + method + ": $" + amount);
 
         TransactionResult result;
@@ -179,6 +320,8 @@ public class DeliverX {
 
         return payment;
     }
+
+
 
     
 

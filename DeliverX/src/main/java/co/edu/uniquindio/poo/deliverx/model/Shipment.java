@@ -1,4 +1,5 @@
 package co.edu.uniquindio.poo.deliverx.model;
+import co.edu.uniquindio.poo.deliverx.ShipmentType;
 import co.edu.uniquindio.poo.deliverx.model.state.RequestedState;
 import co.edu.uniquindio.poo.deliverx.model.state.ShipmentState;
 import java.time.LocalDate;
@@ -14,24 +15,24 @@ public class Shipment {
     private Customer customer;
     private double price;
     private List<String> extraServices;
-
+    private ShipmentType type;
     private Pay pay;
     private LocalDate dateTime;
     private ShipmentState currentState;
     private List<String> additionalServices = new ArrayList<>();
 
 
-    public Shipment(String idShipment, Address origin, Address destination, double weight, DeliveryMan deliveryMan, Customer customer, Pay pay, LocalDate dateTime) {
+    public Shipment(String idShipment, Address origin, Address destination, double weight, DeliveryMan deliveryMan, Customer customer, LocalDate dateTime,ShipmentType type) {
         this.idShipment = idShipment;
         this.origin = origin;
         this.destination = destination;
         this.weight = weight;
         this.deliveryMan = deliveryMan;
         this.customer = customer;
-        this.pay = pay;
         this.dateTime = dateTime;
         this.currentState = new RequestedState();
         this.price= 0;
+        this.type = type;
         this.extraServices = new ArrayList<>();
     }
 
@@ -133,4 +134,14 @@ public class Shipment {
     public void setAdditionalServices(List<String> additionalServices) {
         this.additionalServices = additionalServices;
     }
+    public ShipmentType getType() {
+        return type;
+    }
+    public void setType(ShipmentType type) {
+        this.type = type;
+    }
+    public List<String> getExtraServices() {
+        return extraServices;
+    }
+    public void setExtraServices(List<String> extraServices) {}
 }

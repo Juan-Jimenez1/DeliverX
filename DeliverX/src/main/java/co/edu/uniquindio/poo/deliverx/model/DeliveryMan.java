@@ -1,20 +1,27 @@
 package co.edu.uniquindio.poo.deliverx.model;
+import co.edu.uniquindio.poo.deliverx.model.facade.DeliverXFacade;
 import co.edu.uniquindio.poo.deliverx.model.state.ActiveState;
 import co.edu.uniquindio.poo.deliverx.model.state.DeliveryManState;
 import co.edu.uniquindio.poo.deliverx.model.state.InRouteDeliveryState;
+import co.edu.uniquindio.poo.deliverx.model.state.ShipmentState;
 
 public class DeliveryMan extends User{
     private DeliveryManState state;
     private String zonaCobertura;
     private Shipment currentShipment;
+    private ShipmentState shipmentState;
+    private DeliverXFacade deliverXFacade;
 
     private DeliveryMan(Builder<?> builder){
         super(builder);
         this.state = builder.state;
         this.zonaCobertura = builder.zonaCobertura;
+        this.currentShipment = null;
+        this.shipmentState = currentShipment.getCurrentState();
+        this.deliverXFacade= new DeliverXFacade();
     }
 
-//MODIFICAR, QUITAR BUILDER// No //oka
+
     public static class Builder<T extends Builder<T>> extends User.Builder<T>{
         private DeliveryManState state;
         private String zonaCobertura;
@@ -61,6 +68,12 @@ public class DeliveryMan extends User{
     public void completeShipment() {
         this.currentShipment = null;
         changeState(new ActiveState());
+    }
+
+    public void processCashPayment(boolean customerPaid){
+        if(customerPaid){
+          //  deliverXFacade.updateShipmentState(currentShipment,new);
+        }
     }
 
     public DeliveryManState getState() {

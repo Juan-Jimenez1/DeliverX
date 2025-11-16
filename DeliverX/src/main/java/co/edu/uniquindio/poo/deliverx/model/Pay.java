@@ -56,4 +56,15 @@ public class Pay {
     public void setResult(TransactionResult result) {
         this.result = result;
     }
+
+    @Override
+    public String toString() {
+        return "Pay{" +
+                "paymentId='" + paymentId + '\'' +
+                ", paymentMethod=" + paymentMethod +
+                ", amount=" + amount +
+                ", date=" + date +
+                ", result=" + result +
+                '}';
+    }
 }
