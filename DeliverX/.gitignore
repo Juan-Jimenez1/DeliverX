@@ -3,7 +3,7 @@ target/
 build/
 *.class
 *.log
-
+.idea/workspace.xml
 ### Maven wrapper ###
 !.mvn/wrapper/maven-wrapper.jar
 
