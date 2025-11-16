@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo.deliverx.model;
 
-import co.edu.uniquindio.poo.deliverx.pdfGenerator.adapter.ReceiptPdfAdapter;
+import co.edu.uniquindio.poo.deliverx.model.pdfGenerator.adapter.ReceiptPdfAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

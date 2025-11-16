@@ -1,7 +1,7 @@
 package co.edu.uniquindio.poo.deliverx.model;
 
-import co.edu.uniquindio.poo.deliverx.pdfGenerator.adapter.MonthPdfAdapter;
-import co.edu.uniquindio.poo.deliverx.pdfGenerator.adapter.StatePdfAdapter;
+import co.edu.uniquindio.poo.deliverx.model.pdfGenerator.adapter.MonthPdfAdapter;
+import co.edu.uniquindio.poo.deliverx.model.pdfGenerator.adapter.StatePdfAdapter;
 
 public class Admin extends User{
     private DeliverX deliverX;

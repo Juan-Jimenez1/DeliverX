@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo.deliverx.pdfGenerator;
+package co.edu.uniquindio.poo.deliverx.model.pdfGenerator;
 
 import co.edu.uniquindio.poo.deliverx.model.Shipment;
 import org.apache.pdfbox.pdmodel.PDDocument;

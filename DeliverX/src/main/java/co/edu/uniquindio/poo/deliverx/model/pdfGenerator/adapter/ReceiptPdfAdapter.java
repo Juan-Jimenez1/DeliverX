@@ -1,7 +1,7 @@
-package co.edu.uniquindio.poo.deliverx.pdfGenerator.adapter;
+package co.edu.uniquindio.poo.deliverx.model.pdfGenerator.adapter;
 
 import co.edu.uniquindio.poo.deliverx.model.Shipment;
-import co.edu.uniquindio.poo.deliverx.pdfGenerator.PdfReceiptShipmentReport;
+import co.edu.uniquindio.poo.deliverx.model.pdfGenerator.PdfReceiptShipmentReport;
 
 public class ReceiptPdfAdapter implements PdfReportGenerator{
     private PdfReceiptShipmentReport receiptPDF;

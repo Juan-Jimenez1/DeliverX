@@ -1,7 +1,7 @@
-package co.edu.uniquindio.poo.deliverx.pdfGenerator.adapter;
+package co.edu.uniquindio.poo.deliverx.model.pdfGenerator.adapter;
 
 import co.edu.uniquindio.poo.deliverx.model.Shipment;
-import co.edu.uniquindio.poo.deliverx.pdfGenerator.PdfShipmentsByStateReport;
+import co.edu.uniquindio.poo.deliverx.model.pdfGenerator.PdfShipmentsByStateReport;
 
 import java.util.List;
 
