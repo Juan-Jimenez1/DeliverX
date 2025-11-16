@@ -1,5 +1,9 @@
 package co.edu.uniquindio.poo.deliverx.model.decorator;
 
+import co.edu.uniquindio.poo.deliverx.model.Shipment;
+
+import java.util.List;
+
 public class SignatureRequiredDecorator extends ShipmentDecorator {
     private static final double SIGNATURE_COST = 2000.0;
 
@@ -13,7 +17,7 @@ public class SignatureRequiredDecorator extends ShipmentDecorator {
     }
 
     @Override
-    public String getDescription() {
-        return super.getDescription() + " + Firma Requerida";
+    public List<String> getExtras() {
+        return super.getExtras();
     }
 }

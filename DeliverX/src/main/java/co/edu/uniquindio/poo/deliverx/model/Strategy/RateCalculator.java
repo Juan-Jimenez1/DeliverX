@@ -5,6 +5,9 @@ public class RateCalculator {
     private RateStrategy strategy;
 
     public RateCalculator(RateStrategy strategy) {
+        if (strategy == null) {
+            throw new IllegalArgumentException("The strategy can't be null");
+        }
         this.strategy = strategy;
     }
 
@@ -13,7 +16,15 @@ public class RateCalculator {
     }
 
     public double calculateRate(Address origin, Address destination, double weight) {
-        return strategy.calculate(origin, destination, weight);
+        try {
+            return strategy.calculate(origin, destination, weight);
+        } catch (IllegalArgumentException e) {
+            // Relanzar excepciones de validación
+            throw e;
+        } catch (Exception e) {
+            // Manejar otros errores inesperados
+            throw new RuntimeException("Error calculating the rate: " + e.getMessage(), e);
+        }
     }
 
     public String getStrategyDescription() {

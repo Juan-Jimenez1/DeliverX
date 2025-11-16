@@ -58,30 +58,20 @@ public class DeliverXFacade {
         // 2. Crear envío básico
         Shipment shipment = new Shipment(
                 shipmentId, origin, destination, weight,
-                null, customer, null, LocalDate.now()
-        );
+                null, customer, null, LocalDate.now(), 0.0);
 
         // 3. Aplicar servicios adicionales con Decorator
         ShipmentComponent shipmentComponent = new BasicShipment(shipment, baseCost);
         shipmentComponent = applyAdditionalServices(shipmentComponent, additionalServices);
 
-        double finalCost = shipmentComponent.calculateCost();
+        shipmentComponent.calculateCost();
+
+        double finalCost = shipment.getPrice();
+
         System.out.println("  Additional services applied:");
         System.out.println("  " + shipmentComponent.getDescription());
         System.out.println("  Total Amount: $" + finalCost + "\n");
 
-        // 4. Procesar pago usando Adapter
-        Pay payment = processPayment(shipmentId, finalCost, paymentMethod);
-        shipment.setPay(payment);
-
-        if (payment.getResult() == TransactionResult.APPROVED) {
-            System.out.println(" Payment processed successfully\n");
-        } else {
-            System.out.println(" Payment rejected\n");
-            return null;
-        }
-
-        // 5. Configurar observadores para notificaciones
         ObservableShipment observableShipment = new ObservableShipment(shipment);
         for (ShipmentObserver observer : defaultObservers) {
             observableShipment.attach(observer);
@@ -142,24 +132,24 @@ public class DeliverXFacade {
     }
 
     /**
-     * Obtiene una cotización de envío (sin crear el envío)
+     * Obtiene una cotización de envío (sin crear el envío), No creo que sea necesario el método
      */
-    public double getShipmentQuote(
-            Address origin,
-            Address destination,
-            double weight,
-            RateStrategy rateStrategy,
-            List<String> additionalServices) {
+    //public double getShipmentQuote(
+            //Address origin,
+            //Address destination,
+            //double weight,
+            //RateStrategy rateStrategy,
+            //List<String> additionalServices) {
 
-        rateCalculator = new RateCalculator(rateStrategy);
-        double baseCost = rateCalculator.calculateRate(origin, destination, weight);
+        //rateCalculator = new RateCalculator(rateStrategy);
+        //double baseCost = rateCalculator.calculateRate(origin, destination, weight);
 
         // Simular decoradores para calcular costo total
-        ShipmentComponent component = new BasicShipment(null, baseCost);
-        component = applyAdditionalServices(component, additionalServices);
+        //ShipmentComponent component = new BasicShipment(null, baseCost);
+        //component = applyAdditionalServices(component, additionalServices);
 
-        return component.calculateCost();
-    }
+        //return component.calculateCost();
+    //}
 
     /**
      * Cancela un envío si está en estado válido
@@ -208,42 +198,6 @@ public class DeliverXFacade {
 
         return component;
     }
-
-//    private Pay processPayment(String paymentId, double amount, PaymentMethod method) {
-//        System.out.println(" Processing payment...");
-//        PaymentProcessor processor = PaymentAdapterFactory.getAdapter(method);
-//        return processor.processPayment(paymentId, amount, method);
-//    }
-
-
-    //Se puede quitar de aqui, se puede poner como un metodo normal ya que no hay
-    // necesidad porque no hay muchos procesos por hacer
-private Pay processPayment(String paymentId, double amount, PaymentMethod method) {
-    System.out.println(" Processing payment via " + method + ": $" + amount);
-
-    TransactionResult result;
-
-    if (method == PaymentMethod.CASH) {
-        // Efectivo requiere confirmación física
-        result = TransactionResult.PENDING;
-        System.out.println(" Cash payment registered - Pending confirmation");
-    } else {
-        // Tarjetas de crédito/débito se aprueban inmediatamente
-        result = TransactionResult.APPROVED;
-        System.out.println( method + " payment approved");
-    }
-
-    // Crear el pago con todos los parámetros requeridos
-    Pay payment = new Pay(
-            paymentId,
-            method,
-            amount,
-            LocalDate.now(),
-            result
-    );
-
-    return payment;
-}
 
     public DeliverX getDeliverX() {
         return deliverX;

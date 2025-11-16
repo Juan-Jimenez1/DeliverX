@@ -1,5 +1,9 @@
 package co.edu.uniquindio.poo.deliverx.model.decorator;
 
+import co.edu.uniquindio.poo.deliverx.model.Shipment;
+
+import java.util.List;
+
 public class SpecialPackagingDecorator extends ShipmentDecorator{
     private static final double PACKAGING_COST = 4000.0;
 
@@ -13,7 +17,9 @@ public class SpecialPackagingDecorator extends ShipmentDecorator{
     }
 
     @Override
-    public String getDescription() {
-        return super.getDescription() + " + Empaque Especial";
+    public List<String> getExtras() {
+        return super.getExtras();
     }
 }
+
+

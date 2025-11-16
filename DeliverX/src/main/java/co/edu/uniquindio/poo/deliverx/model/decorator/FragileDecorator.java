@@ -1,10 +1,13 @@
 package co.edu.uniquindio.poo.deliverx.model.decorator;
+import co.edu.uniquindio.poo.deliverx.model.Shipment;
+
+import java.util.List;
 
 public class FragileDecorator extends ShipmentDecorator{
     private static final double FRAGILE_COST = 3000.0;
 
-    public FragileDecorator(ShipmentComponent shipment) {
-        super(shipment);
+    public FragileDecorator(ShipmentComponent wrapped) {
+        super(wrapped);
     }
 
     @Override
@@ -13,8 +16,7 @@ public class FragileDecorator extends ShipmentDecorator{
     }
 
     @Override
-    public String getDescription() {
-        return super.getDescription() + " + Manejo Frágil";
+    public List<String> getExtras() {
+        return super.getExtras();
     }
-
 }

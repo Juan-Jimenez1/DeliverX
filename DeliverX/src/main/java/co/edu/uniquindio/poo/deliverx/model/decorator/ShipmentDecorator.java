@@ -1,5 +1,7 @@
 package co.edu.uniquindio.poo.deliverx.model.decorator;
 
+import java.util.List;
+
 public abstract class ShipmentDecorator implements ShipmentComponent{
     protected ShipmentComponent wrappedShipment;
 
@@ -9,11 +11,12 @@ public abstract class ShipmentDecorator implements ShipmentComponent{
 
     @Override
     public double calculateCost() {
-        return wrappedShipment.calculateCost();
+        wrappedShipment.calculateCost();
     }
+//Metete a la llamada
 
     @Override
-    public String getDescription() {
-        return wrappedShipment.getDescription();
+    public List<String> getExtras() {
+       wrappedShipment.getExtras();
     }
 }

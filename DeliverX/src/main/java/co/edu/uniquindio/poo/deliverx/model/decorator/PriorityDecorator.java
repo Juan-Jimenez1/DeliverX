@@ -1,6 +1,10 @@
 package co.edu.uniquindio.poo.deliverx.model.decorator;
 
-public class PriorityDecorator extends ShipmentDecorator{
+import co.edu.uniquindio.poo.deliverx.model.Shipment;
+
+import java.util.List;
+
+public class PriorityDecorator extends ShipmentDecorator {
     private static final double PRIORITY_COST = 8000.0;
 
     public PriorityDecorator(ShipmentComponent shipment) {
@@ -13,7 +17,9 @@ public class PriorityDecorator extends ShipmentDecorator{
     }
 
     @Override
-    public String getDescription() {
-        return super.getDescription() + " + Entrega Prioritaria";
+    public List<String> getExtras() {
+        List<String> extras = super.getExtras();
+        extras.add("PRIORITY");
+        return extras;
     }
 }

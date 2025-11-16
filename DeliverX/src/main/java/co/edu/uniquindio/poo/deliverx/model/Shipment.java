@@ -2,6 +2,8 @@ package co.edu.uniquindio.poo.deliverx.model;
 import co.edu.uniquindio.poo.deliverx.model.state.RequestedState;
 import co.edu.uniquindio.poo.deliverx.model.state.ShipmentState;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Shipment {
     private String idShipment;
@@ -10,9 +12,13 @@ public class Shipment {
     private double weight;
     private DeliveryMan deliveryMan;
     private Customer customer;
+    private double price;
+    private List<String> extraServices;
+
     private Pay pay;
     private LocalDate dateTime;
     private ShipmentState currentState;
+    private List<String> additionalServices = new ArrayList<>();
 
 
     public Shipment(String idShipment, Address origin, Address destination, double weight, DeliveryMan deliveryMan, Customer customer, Pay pay, LocalDate dateTime) {
@@ -25,6 +31,8 @@ public class Shipment {
         this.pay = pay;
         this.dateTime = dateTime;
         this.currentState = new RequestedState();
+        this.price= 0;
+        this.extraServices = new ArrayList<>();
     }
 
     public boolean changeState(ShipmentState newState) {
@@ -110,5 +118,19 @@ public class Shipment {
 
     public void setCurrentState(ShipmentState currentState) {
         this.currentState = currentState;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    public List<String> getAdditionalServices() {
+        return additionalServices;
+    }
+    public void setAdditionalServices(List<String> additionalServices) {
+        this.additionalServices = additionalServices;
     }
 }

@@ -1,11 +1,15 @@
 package co.edu.uniquindio.poo.deliverx.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
     private String userId;
     private String name;
     private String password;
     private String email;
     private String phoneNumber;
+    private List<Shipment> shipmentList;
 
 
     protected User(Builder<?> builder) {
@@ -14,6 +18,7 @@ public class User {
         this.password = builder.password;
         this.email = builder.email;
         this.phoneNumber = builder.phoneNumber;
+        this.shipmentList = new ArrayList<>();
     }
 
 
@@ -50,7 +55,6 @@ public class User {
         }
 
         protected T self() {
-            // Cast to the specific type of Builder
             return (T) this;
         }
 

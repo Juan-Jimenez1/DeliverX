@@ -2,26 +2,20 @@ package co.edu.uniquindio.poo.deliverx.model.decorator;
 
 import co.edu.uniquindio.poo.deliverx.model.Shipment;
 
-public class BasicShipment implements ShipmentComponent{
-    private Shipment shipment;
-    private double baseCost;
+import java.util.ArrayList;
+import java.util.List;
 
-    public BasicShipment(Shipment shipment, double baseCost) {
-        this.shipment = shipment;
-        this.baseCost = baseCost;
-    }
+public class BasicShipment implements ShipmentComponent{
 
     @Override
     public double calculateCost() {
-        return baseCost;
+        return 0;
     }
 
     @Override
-    public String getDescription() {
-        return "Envío básico";
+    public List<String> getExtras() {
+        return new ArrayList<>();
     }
 
-    public Shipment getShipment() {
-        return shipment;
-    }
+
 }

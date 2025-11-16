@@ -14,7 +14,7 @@ public class DeliveryMan extends User{
         this.zonaCobertura = builder.zonaCobertura;
     }
 
-//MODIFICAR, QUITAR BUILDER// No
+//MODIFICAR, QUITAR BUILDER// No //oka
     public static class Builder<T extends Builder<T>> extends User.Builder<T>{
         private DeliveryManState state;
         private String zonaCobertura;

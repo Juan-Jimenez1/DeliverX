@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.deliverx.model;
 
 import javax.swing.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -150,6 +151,33 @@ public class DeliverX {
             JOptionPane.showMessageDialog(null, "The ID is incorrect or the user does not exist", "Error", JOptionPane.ERROR_MESSAGE);
         }
         return false;
+    }
+
+    private Pay processPayment(String paymentId, double amount, PaymentMethod method) {
+        System.out.println(" Processing payment via " + method + ": $" + amount);
+
+        TransactionResult result;
+
+        if (method == PaymentMethod.CASH) {
+            // Efectivo requiere confirmación física
+            result = TransactionResult.PENDING;
+            System.out.println(" Cash payment registered - Pending confirmation");
+        } else {
+            // Tarjetas de crédito/débito se aprueban inmediatamente
+            result = TransactionResult.APPROVED;
+            System.out.println( method + " payment approved");
+        }
+
+        // Crear el pago con todos los parámetros requeridos
+        Pay payment = new Pay(
+                paymentId,
+                method,
+                amount,
+                LocalDate.now(),
+                result
+        );
+
+        return payment;
     }
 
 
