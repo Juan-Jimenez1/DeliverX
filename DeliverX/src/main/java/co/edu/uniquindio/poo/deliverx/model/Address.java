@@ -63,4 +63,15 @@ public class Address {
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
+
+    @Override
+    public String toString() {
+        return "Address=" +
+                "Address ID:'" + addressId + '\'' +
+                ", Street='" + street + '\'' +
+                ", City='" + city + '\'' +
+                ", Address Type='" + type + '\'' +
+                ", Latitude=" + latitude +
+                ", Longitude=" + longitude ;
+    }
 }

@@ -86,21 +86,6 @@ public class DeliverX {
     public Shipment getShipment (String shipmentID){
         return listShipments.stream().filter(shipment -> shipment.getIdShipment().equals(shipmentID)).findFirst().orElse(null);
     }
-//Juan revisa este método
-    public List<Shipment> getShipmentsByCustomer(String customerId){
-        Customer found= null;
-        for (Customer customer : listCustomers) {
-            if (customer.getUserId().equals(customerId)) {
-                found= customer;
-                break;
-            }
-        }
-       if(found!=null){
-            return found.getShipmentList();
-        }else{
-            return new ArrayList<>();
-        }
-    }
 
     public List<Shipment> getShipmentsByState(String stateName) {
         return listShipments.stream()

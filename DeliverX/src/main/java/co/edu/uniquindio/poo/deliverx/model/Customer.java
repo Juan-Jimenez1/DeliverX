@@ -1,5 +1,7 @@
 package co.edu.uniquindio.poo.deliverx.model;
 
+import co.edu.uniquindio.poo.deliverx.pdfGenerator.adapter.ReceiptPdfAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,5 +40,17 @@ public class Customer extends User{
 
     public void setShipmentList(List<Shipment> shipmentList) {
         this.shipmentList = shipmentList;
+    }
+
+    public void generateReceiptPDF(String idShipment){
+        for(Shipment shipment : shipmentList){
+            if(shipment.getIdShipment().equalsIgnoreCase(idShipment)){
+                ReceiptPdfAdapter receiptPdfAdapter = new ReceiptPdfAdapter(shipment);
+                receiptPdfAdapter.generatePDFReport("receipt report",idShipment);
+                return;
+            }
+        }
+        System.out.println("Shipment with ID"+idShipment+ "not found ");
+
     }
 }

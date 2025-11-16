@@ -9,15 +9,15 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 import java.io.IOException;
 
-public class pdfReceiptAdapter implements exportable{
+public class PdfReceiptShipmentReport {
 
     private Shipment shipment;
 
-    public pdfReceiptAdapter(Shipment shipment) {
+    public PdfReceiptShipmentReport(Shipment shipment) {
         this.shipment = shipment;
     }
 
-    public void generatePDFReport(String filename) {
+    public void generatePDFReport(String filename, String id) {
         try (PDDocument document = new PDDocument()) {
             PDPage page = new PDPage();
             document.addPage(page);
@@ -28,7 +28,7 @@ public class pdfReceiptAdapter implements exportable{
             try (PDPageContentStream content = new PDPageContentStream(document, page)) {
 
                 // --- Title ---
-                String title = "ORDER RECEIPT";
+                String title = "ORDER RECEIPT ID"+ id;
                 int fontSizeTitle = 16;
                 float titleWidth = PDType1Font.HELVETICA_BOLD.getStringWidth(title) / 1000 * fontSizeTitle;
                 float titleX = (pageWidth - titleWidth) / 2;
@@ -44,7 +44,7 @@ public class pdfReceiptAdapter implements exportable{
                 content.setFont(PDType1Font.HELVETICA, 12);
 
                 String[] info = {
-                        "Shipment ID: " + shipment.getIdShipment(),
+                        "Shipment ID: " + id,
                         "Date: " + shipment.getDateTime(),
                         "Shipment Status: " + shipment.getCurrentState().getStateName(),
                         "Customer: " + shipment.getCustomer().getName(),
