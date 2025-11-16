@@ -17,6 +17,8 @@ public class FragileDecorator extends ShipmentDecorator{
 
     @Override
     public List<String> getExtras() {
-        return super.getExtras();
+        List<String> extras = super.getExtras();
+        extras.add("FRAGILE");
+        return extras;
     }
 }

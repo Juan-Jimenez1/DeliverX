@@ -18,6 +18,8 @@ public class SignatureRequiredDecorator extends ShipmentDecorator {
 
     @Override
     public List<String> getExtras() {
-        return super.getExtras();
+        List<String> extras = super.getExtras();
+        extras.add("SIGNATURE REQUIRED");
+        return extras;
     }
 }

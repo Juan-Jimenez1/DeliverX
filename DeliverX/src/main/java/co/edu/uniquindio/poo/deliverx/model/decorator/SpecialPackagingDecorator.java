@@ -18,7 +18,9 @@ public class SpecialPackagingDecorator extends ShipmentDecorator{
 
     @Override
     public List<String> getExtras() {
-        return super.getExtras();
+        List<String> extras = super.getExtras();
+        extras.add("SPECIAL PACKAGING");
+        return extras;
     }
 }
 

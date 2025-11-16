@@ -11,12 +11,12 @@ public abstract class ShipmentDecorator implements ShipmentComponent{
 
     @Override
     public double calculateCost() {
-        wrappedShipment.calculateCost();
+        return wrappedShipment.calculateCost();
     }
-//Metete a la llamada
 
     @Override
     public List<String> getExtras() {
-       wrappedShipment.getExtras();
+       return wrappedShipment.getExtras();
     }
+
 }

@@ -35,10 +35,10 @@ public class NormalStrategy implements RateStrategy{
     }
 
     private double calculateCartesianDistance(Address origin, Address destination) {
-        double lat1 = Double.parseDouble(origin.getLatitude());
-        double lon1 = Double.parseDouble(origin.getLongitude());
-        double lat2 = Double.parseDouble(destination.getLatitude());
-        double lon2 = Double.parseDouble(destination.getLongitude());
+        double lat1 = origin.getLatitude();
+        double lon1 = origin.getLongitude();
+        double lat2 = destination.getLatitude();
+        double lon2 = destination.getLongitude();
 
         double dLat = lat2 - lat1;
         double dLon = lon2 - lon1;

@@ -5,39 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b603b93a-906b-4e18-aa13-1761e30bff97" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/Rate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/pdfGenerator/pdfGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/pdfGenerator/shipmentReportPdfGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/DeliveryMan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/DeliveryMan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Shipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Shipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/BasicShipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/BasicShipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/Rate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Rate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Rate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Strategy/ExpressStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Strategy/ExpressStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Strategy/NormalStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Strategy/NormalStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/FragileDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/FragileDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/ShipmentComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/ShipmentComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/InsuranceDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/InsuranceDecorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/ShipmentDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/ShipmentDecorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/SignatureRequiredDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/SignatureRequiredDecorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/SpecialPackagingDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/SpecialPackagingDecorator.java" afterDir="false" />
     </list>
     <list id="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" name="Changes by Maria" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/app/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/DeliverX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/DeliverX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Rate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Rate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Shipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Shipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Strategy/CombinedStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Strategy/DsitanceBasedStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Strategy/ExpressStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Strategy/ExpressStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Strategy/RateCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Strategy/RateCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Strategy/WeightBasedStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/BasicShipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/BasicShipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/FragileDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/FragileDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/InsuranceDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/InsuranceDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/PriorityDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/PriorityDecorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/ShipmentDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/ShipmentDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/SignatureRequiredDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/SignatureRequiredDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/SpecialPackagingDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/SpecialPackagingDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/facade/DeliverXFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/facade/DeliverXFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +33,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -55,49 +42,33 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/FragileDecorator.java">
-      <ranges>
-        <range start1="1" end1="1" start2="1" end2="4" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
-        <range start1="5" end1="7" start2="8" end2="10" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
-        <range start1="15" end1="17" start2="18" end2="20" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
-        <range start1="18" end1="19" start2="21" end2="21" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/SpecialPackagingDecorator.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="6" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
-        <range start1="12" end1="17" start2="16" end2="16" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
-        <range start1="18" end1="19" start2="17" end2="25" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Shipment.java">
-      <ranges>
-        <range start1="4" end1="4" start2="4" end2="6" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
-        <range start1="12" end1="12" start2="14" end2="17" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
-        <range start1="15" end1="15" start2="20" end2="21" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
-        <range start1="27" end1="27" start2="33" end2="35" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
-        <range start1="113" end1="113" start2="121" end2="135" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
-      </ranges>
-    </file>
     <file path="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/ShipmentDecorator.java">
       <ranges>
-        <range start1="2" end1="2" start2="2" end2="4" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
-        <range start1="11" end1="12" start2="13" end2="15" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
-        <range start1="13" end1="13" start2="16" end2="17" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
-        <range start1="15" end1="17" start2="19" end2="21" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
+        <range start1="13" end1="14" start2="13" end2="14" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
+        <range start1="15" end1="16" start2="15" end2="15" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
+        <range start1="19" end1="20" start2="18" end2="19" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
+        <range start1="21" end1="21" start2="20" end2="21" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
       </ranges>
     </file>
-    <file path="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/SignatureRequiredDecorator.java">
+    <file path="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/Rate.java">
       <ranges>
-        <range start1="2" end1="2" start2="2" end2="6" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
-        <range start1="15" end1="17" start2="19" end2="21" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/BasicShipment.java">
-      <ranges>
-        <range start1="3" end1="3" start2="3" end2="5" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
-        <range start1="15" end1="16" start2="17" end2="18" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
-        <range start1="19" end1="21" start2="21" end2="23" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
+        <range start1="5" end1="5" start2="5" end2="6" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
+        <range start1="6" end1="6" start2="7" end2="8" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
+        <range start1="15" end1="15" start2="17" end2="18" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
+        <range start1="23" end1="23" start2="26" end2="27" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
+        <range start1="24" end1="27" start2="28" end2="31" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
+        <range start1="28" end1="28" start2="32" end2="34" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
+        <range start1="29" end1="30" start2="35" end2="39" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
+        <range start1="31" end1="31" start2="40" end2="41" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
+        <range start1="32" end1="32" start2="42" end2="60" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
+        <range start1="35" end1="37" start2="63" end2="65" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
+        <range start1="38" end1="43" start2="66" end2="71" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
+        <range start1="44" end1="47" start2="72" end2="75" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
+        <range start1="48" end1="51" start2="76" end2="79" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
+        <range start1="52" end1="55" start2="80" end2="83" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
+        <range start1="56" end1="61" start2="84" end2="87" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
+        <range start1="62" end1="64" start2="88" end2="92" changelist="b603b93a-906b-4e18-aa13-1761e30bff97" />
+        <range start1="65" end1="65" start2="93" end2="95" changelist="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" />
       </ranges>
     </file>
   </component>
@@ -120,7 +91,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
@@ -164,7 +135,7 @@
       <updated>1763246063949</updated>
       <workItem from="1763246067129" duration="3271000" />
       <workItem from="1763249856346" duration="4020000" />
-      <workItem from="1763255033523" duration="11994000" />
+      <workItem from="1763255033523" duration="15337000" />
     </task>
     <servers />
   </component>

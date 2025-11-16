@@ -18,7 +18,9 @@ public class InsuranceDecorator extends ShipmentDecorator {
 
     @Override
     public List<String> getExtras() {
-        return super.getExtras();
+        List<String> extras = super.getExtras();
+        extras.add("INSURANCE");
+        return extras;
     }
 }
 
