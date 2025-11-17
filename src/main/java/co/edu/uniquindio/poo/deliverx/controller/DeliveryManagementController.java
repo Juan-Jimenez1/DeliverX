@@ -64,29 +64,20 @@ public class DeliveryManagementController {
                 })
         );
         zonaColumn.setCellValueFactory(new PropertyValueFactory<>("zonaCobertura"));
-
-        // Configure state ComboBox with correct state names from your classes
         filterStateComboBox.setItems(FXCollections.observableArrayList(
                 "All", "ACTIVE", "INACTIVE", "ROUTE", "NO STATE"
         ));
         filterStateComboBox.setValue("All");
-
-        // Load initial data
         loadDeliveryData();
-
-        // Configure listeners
         setupListeners();
 
         updateStatus("System loaded. " + deliveryList.size() + " delivery men found.");
     }
 
     private void setupListeners() {
-        // State filter listener
         filterStateComboBox.valueProperty().addListener((obs, oldVal, newVal) -> {
             applyFilters();
         });
-
-        // Table selection listener
         deliveryTable.getSelectionModel().selectedItemProperty().addListener(
                 (obs, oldSelection, newSelection) -> {
                     if (newSelection != null) {
@@ -211,8 +202,6 @@ public class DeliveryManagementController {
             details.append("Name: ").append(deliveryMan.getName()).append("\n");
             details.append("Email: ").append(deliveryMan.getEmail()).append("\n");
             details.append("Phone: ").append(deliveryMan.getPhoneNumber()).append("\n");
-
-            // Safe state retrieval
             DeliveryManState state = null;
             String stateName = "NO STATE";
             try {
@@ -227,7 +216,6 @@ public class DeliveryManagementController {
 
             details.append("Coverage Zone: ").append(deliveryMan.getZonaCobertura()).append("\n");
 
-            // Safe current shipment check
             String shipmentInfo = "None";
             try {
                 java.lang.reflect.Method getCurrentShipmentMethod = deliveryMan.getClass().getMethod("getCurrentShipment");
@@ -257,18 +245,16 @@ public class DeliveryManagementController {
                     "Error showing details: " + e.getMessage());
         }
     }
-
+// for edit delivery
     private void editDeliveryMan(DeliveryMan deliveryMan) {
         try {
             Dialog<DeliveryMan> dialog = new Dialog<>();
             dialog.setTitle("Edit Delivery Man");
             dialog.setHeaderText("Editing: " + deliveryMan.getName());
 
-            // Configure buttons
             ButtonType saveButtonType = new ButtonType("Save", ButtonBar.ButtonData.OK_DONE);
             dialog.getDialogPane().getButtonTypes().addAll(saveButtonType, ButtonType.CANCEL);
 
-            // Create form
             GridPane grid = new GridPane();
             grid.setHgap(10);
             grid.setVgap(10);
@@ -294,7 +280,6 @@ public class DeliveryManagementController {
             dialog.setResultConverter(dialogButton -> {
                 if (dialogButton == saveButtonType) {
                     try {
-                        // Update delivery man using Builder pattern
                         DeliveryMan.Builder<?> builder = new DeliveryMan.Builder<>()
                                 .userId(deliveryMan.getUserId())
                                 .name(nameField.getText())
@@ -302,14 +287,12 @@ public class DeliveryManagementController {
                                 .phoneNumber(phoneField.getText())
                                 .zonaCobertura(zonaField.getText());
 
-                        // Try to preserve current state if possible
                         try {
                             DeliveryManState currentState = deliveryMan.getState();
                             if (currentState != null) {
                                 builder.state(currentState);
                             }
                         } catch (Exception e) {
-                            // If state is null or inaccessible, continue without it
                         }
 
                         return builder.build();
@@ -390,19 +373,17 @@ public class DeliveryManagementController {
                     String message;
 
                     if (finalCurrentState == null) {
-                        // If current state is null, set the state directly
+                        // if current state is null set the state directly
                         deliveryMan.setState(newStateObj);
                         success = true;
                         message = "State set to: " + newState + " (was previously NO STATE)";
                     } else {
-                        // Use the state transition logic
                         success = deliveryMan.changeState(newStateObj);
                         message = success ? "State changed to: " + newState :
                                 "Cannot change from " + finalCurrentStateName + " to " + newState;
                     }
 
                     if (success) {
-                        // Update in the main system
                         boolean systemUpdate = deliverX.updateDeliveryMan(deliveryMan.getUserId(), deliveryMan);
                         if (systemUpdate) {
                             loadDeliveryData();

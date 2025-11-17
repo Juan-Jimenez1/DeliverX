@@ -37,7 +37,7 @@ public class AdminController {
     }
 
     public void loadReports(ActionEvent event) {
-        cargarFXMLEnAnchorPane("/co/edu/uniquindio/poo/deliverx/admin/report_pdf.fxml", contentArea);
+        cargarFXMLEnAnchorPane("/co/edu/uniquindio/poo/deliverx/admin/reportAdmin.fxml", contentArea);
     }
 
     public void logout(ActionEvent event) {

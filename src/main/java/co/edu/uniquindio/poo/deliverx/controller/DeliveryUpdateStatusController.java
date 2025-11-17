@@ -8,6 +8,8 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import co.edu.uniquindio.poo.deliverx.model.DeliverX;
 import co.edu.uniquindio.poo.deliverx.model.Shipment;
+import co.edu.uniquindio.poo.deliverx.model.DeliveryMan;
+import co.edu.uniquindio.poo.deliverx.model.User;
 import co.edu.uniquindio.poo.deliverx.model.state.*;
 
 public class DeliveryUpdateStatusController {
@@ -35,10 +37,21 @@ public class DeliveryUpdateStatusController {
     private ObservableList<Shipment> shipments;
     private ToggleGroup statusToggleGroup;
     private DeliverX deliverX;
+    private DeliveryMan currentDeliveryMan;
 
     @FXML
     public void initialize() {
         deliverX = DeliverX.getInstance();
+
+        // Obtener el repartidor logueado
+        User userLogged = deliverX.getUserLoged();
+        if (userLogged instanceof DeliveryMan) {
+            currentDeliveryMan = (DeliveryMan) userLogged;
+            System.out.println("Repartidor actual: " + currentDeliveryMan.getName());
+        } else {
+            showMessage("Error: No delivery man logged in", "error");
+            return;
+        }
 
         // Initialize toggle group for radio buttons
         statusToggleGroup = new ToggleGroup();
@@ -47,8 +60,8 @@ public class DeliveryUpdateStatusController {
         entregadoRadio.setToggleGroup(statusToggleGroup);
         incidenciaRadio.setToggleGroup(statusToggleGroup);
 
-        // Load shipments data
-        loadShipments();
+        // Load shipments data - solo los asignados a este repartidor
+        loadAssignedShipments();
 
         // Set up combo box
         orderComboBox.setItems(shipments);
@@ -71,7 +84,7 @@ public class DeliveryUpdateStatusController {
             protected void updateItem(Shipment item, boolean empty) {
                 super.updateItem(item, empty);
                 if (empty || item == null) {
-                    setText(null);
+                    setText("Select assigned shipment");
                 } else {
                     setText("Shipment #" + item.getIdShipment() + " - " +
                             (item.getDestination() != null ? item.getDestination().getStreet() : "No destination"));
@@ -86,14 +99,36 @@ public class DeliveryUpdateStatusController {
                 updateAvailableStatusOptions(newValue);
             }
         });
+
+        // Mostrar mensaje si no hay envíos asignados
+        if (shipments.isEmpty()) {
+            showMessage("No shipments assigned to you", "info");
+        }
     }
 
-    private void loadShipments() {
+    private void loadAssignedShipments() {
         shipments = FXCollections.observableArrayList();
-        // Load all shipments from the system
+
+        // Cargar solo los envíos asignados a este repartidor
         if (deliverX.getListShipments() != null) {
-            shipments.addAll(deliverX.getListShipments());
+            for (Shipment shipment : deliverX.getListShipments()) {
+                if (isShipmentAssignedToCurrentDeliveryMan(shipment)) {
+                    shipments.add(shipment);
+                }
+            }
         }
+
+        System.out.println("Envíos asignados cargados: " + shipments.size());
+    }
+
+    private boolean isShipmentAssignedToCurrentDeliveryMan(Shipment shipment) {
+        // Verificar si el envío está asignado al repartidor actual
+        if (shipment.getDeliveryMan() == null) {
+            return false;
+        }
+
+        // Comparar por ID del repartidor
+        return shipment.getDeliveryMan().getUserId().equals(currentDeliveryMan.getUserId());
     }
 
     @FXML
@@ -218,6 +253,9 @@ public class DeliveryUpdateStatusController {
 
                     // Clear selection after successful update
                     statusToggleGroup.selectToggle(null);
+
+                    // Recargar la lista por si hay cambios
+                    loadAssignedShipments();
                 } else {
                     showMessage("Invalid state transition from " + currentState, "error");
                 }

@@ -11,6 +11,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import co.edu.uniquindio.poo.deliverx.model.DeliverX;
 import co.edu.uniquindio.poo.deliverx.model.Shipment;
+import co.edu.uniquindio.poo.deliverx.model.DeliveryMan;
+import co.edu.uniquindio.poo.deliverx.model.User;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -19,6 +21,8 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class DeliveryHistoryController {
     @FXML
@@ -55,12 +59,22 @@ public class DeliveryHistoryController {
     private ObservableList<Shipment> shipmentsData;
     private FilteredList<Shipment> filteredData;
     private DeliverX deliverX;
+    private DeliveryMan currentDeliveryMan;
 
     @FXML
     public void initialize() {
         deliverX = DeliverX.getInstance();
 
-        // Initialize table columns
+        // Obtener el repartidor logueado
+        User userLogged = deliverX.getUserLoged();
+        if (userLogged instanceof DeliveryMan) {
+            currentDeliveryMan = (DeliveryMan) userLogged;
+            System.out.println("Repartidor actual: " + currentDeliveryMan.getName());
+        } else {
+            showAlert("Error", "No hay un repartidor logueado");
+            return;
+        }
+
         orderIdColumn.setCellValueFactory(cellData ->
                 new javafx.beans.property.SimpleStringProperty(cellData.getValue().getIdShipment()));
         destinationColumn.setCellValueFactory(cellData ->
@@ -78,33 +92,40 @@ public class DeliveryHistoryController {
         durationColumn.setCellValueFactory(cellData ->
                 new javafx.beans.property.SimpleStringProperty(calculateDuration(cellData.getValue())));
 
-        // Initialize status filter
         statusFilterComboBox.setItems(FXCollections.observableArrayList(
                 "All", "REQUESTED", "ASSIGNED", "ROUTE", "DELIVERED", "CANCELLED"
         ));
         statusFilterComboBox.setValue("All");
-
-        // Set default date range (last 30 days)
         dateToPicker.setValue(LocalDate.now());
         dateFromPicker.setValue(LocalDate.now().minusDays(30));
 
-        // Load data
         loadShipmentsData();
-
-        // Set up filtering
         setupFiltering();
-
-        // Update statistics
         updateStatistics();
     }
 
     private void loadShipmentsData() {
         shipmentsData = FXCollections.observableArrayList();
 
-        // Load shipments from DeliverX system
+        // Cargar solo los envíos asignados a este repartidor
         if (deliverX.getListShipments() != null) {
-            shipmentsData.addAll(deliverX.getListShipments());
+            List<Shipment> assignedShipments = deliverX.getListShipments().stream()
+                    .filter(shipment -> isShipmentAssignedToCurrentDeliveryMan(shipment))
+                    .collect(Collectors.toList());
+
+            shipmentsData.addAll(assignedShipments);
+            System.out.println("Envíos cargados para el repartidor: " + assignedShipments.size());
         }
+    }
+
+    private boolean isShipmentAssignedToCurrentDeliveryMan(Shipment shipment) {
+        // Verificar si el envío está asignado al repartidor actual
+        if (shipment.getDeliveryMan() == null) {
+            return false;
+        }
+
+        // Comparar por ID del repartidor
+        return shipment.getDeliveryMan().getUserId().equals(currentDeliveryMan.getUserId());
     }
 
     private void setupFiltering() {
@@ -195,7 +216,7 @@ public class DeliveryHistoryController {
     private void updateStatusLabel() {
         int total = shipmentsData.size();
         int filtered = filteredData.size();
-        statusLabel.setText("Showing " + filtered + " of " + total + " shipments in history");
+        statusLabel.setText("Showing " + filtered + " of " + total + " shipments assigned to you");
     }
 
     @FXML
@@ -233,7 +254,7 @@ public class DeliveryHistoryController {
             fileChooser.getExtensionFilters().add(
                     new FileChooser.ExtensionFilter("CSV Files", "*.csv")
             );
-            fileChooser.setInitialFileName("delivery_history_" + LocalDate.now() + ".csv");
+            fileChooser.setInitialFileName("delivery_history_" + currentDeliveryMan.getName() + "_" + LocalDate.now() + ".csv");
 
             File file = fileChooser.showSaveDialog(new Stage());
             if (file != null) {
@@ -247,12 +268,10 @@ public class DeliveryHistoryController {
 
     private void exportToCSV(File file) throws IOException {
         try (FileWriter writer = new FileWriter(file)) {
-            // Write header
-            writer.write("Shipment ID,Customer,Origin,Destination,Status,Weight,Price,Date,Duration\n");
+            writer.write("Shipment ID,Customer,Origin,Destination,Status,Weight,Price,Date,Duration,Delivery Man\n");
 
-            // Write data
             for (Shipment shipment : filteredData) {
-                writer.write(String.format("%s,%s,%s,%s,%s,%.2f,%.2f,%s,%s\n",
+                writer.write(String.format("%s,%s,%s,%s,%s,%.2f,%.2f,%s,%s,%s\n",
                         shipment.getIdShipment(),
                         shipment.getCustomer() != null ? shipment.getCustomer().getName() : "No Customer",
                         shipment.getOrigin() != null ? shipment.getOrigin().getStreet() : "No Origin",
@@ -261,7 +280,8 @@ public class DeliveryHistoryController {
                         shipment.getWeight(),
                         shipment.getPrice(),
                         shipment.getDateTime() != null ? shipment.getDateTime().toString() : "No Date",
-                        calculateDuration(shipment)
+                        calculateDuration(shipment),
+                        currentDeliveryMan.getName()
                 ));
             }
         }

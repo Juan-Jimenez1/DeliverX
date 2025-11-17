@@ -31,30 +31,30 @@ public class HomeController {
         String password = passwordId.getText().trim();
 
         if (userId.isEmpty() || password.isEmpty()) {
-            mostrarError("Por favor ingrese usuario y contraseña");
+            mostrarError("Please enter username and password");
             return;
         }
 
         boolean loginExitoso = deliverX.loginUser(userId, password);
 
         if (!loginExitoso) {
-            mostrarError("Usuario o contraseña incorrectos");
+            mostrarError("Incorrect username or password");
             return;
         }
 
         User userLogged = deliverX.getUserLoged();
 
         if (userLogged instanceof Admin admin) {
-            irPantalla("/co/edu/uniquindio/poo/deliverx/admin/admin.fxml", "Administrador");
+            irPantalla("/co/edu/uniquindio/poo/deliverx/admin/admin.fxml", "Admin");
         }
         else if (userLogged instanceof DeliveryMan deliveryMan) {
-            irPantalla("/co/edu/uniquindio/poo/deliverx/delivery/delivery.fxml", "Repartidor");
+            irPantalla("/co/edu/uniquindio/poo/deliverx/delivery/delivery.fxml", "Delivery");
         }
         else if (userLogged instanceof Customer customer) {
-            irPantalla("/co/edu/uniquindio/poo/deliverx/user/userDashboard.fxml", "Cliente");
+            irPantalla("/co/edu/uniquindio/poo/deliverx/user/userDashboard.fxml", "Customer");
         }
         else {
-            mostrarError("Tipo de usuario desconocido");
+            mostrarError("Unknown user type");
         }
     }
 

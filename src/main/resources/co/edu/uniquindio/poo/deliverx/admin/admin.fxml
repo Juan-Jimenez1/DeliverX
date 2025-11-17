@@ -6,66 +6,96 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.deliverx.controller.AdminController">
+
+    <!-- Sidebar Navigation -->
     <AnchorPane prefHeight="650.0" prefWidth="250.0" style="-fx-background-color: #CC5E13;">
-        <Label layoutX="40.0" layoutY="30.0" style="-fx-font-weight: bold;" text="Panel Administrador">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
+        <VBox alignment="TOP_CENTER" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
+            </VBox.margin>
 
-        <Label fx:id="adminNameLabel" layoutX="40.0" layoutY="65.0" text="Bienvenido, Admin">
-            <font>
-                <Font size="12.0" />
-            </font>
-        </Label>
+            <!-- Header -->
+            <Label style="-fx-font-weight: bold; -fx-text-fill: white;" text="Admin Panel">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+            </Label>
 
-        <Separator layoutX="25.0" layoutY="100.0" prefWidth="200.0" />
+            <Label fx:id="adminNameLabel" style="-fx-text-fill: white; -fx-font-size: 12px;" text="Welcome, Admin" />
 
-        <Label layoutX="40.0" layoutY="120.0" style="-fx-font-weight: bold;" text="GESTIÓN">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
+            <Separator prefWidth="210.0" style="-fx-background-color: #E67E50;" />
 
-        <Button layoutX="30.0" layoutY="150.0" mnemonicParsing="false" onAction="#loadRegisterDelivery" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #E67E50; -fx-text-fill: white; -fx-background-radius: 5;" text="Registrar Repartidor" />
+            <!-- Management Section -->
+            <Label style="-fx-font-weight: bold; -fx-text-fill: white;" text="MANAGEMENT">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Label>
 
-        <Button layoutX="30.0" layoutY="195.0" mnemonicParsing="false" onAction="#loadRegisterUser" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #E67E50; -fx-text-fill: white; -fx-background-radius: 5;" text="Registrar Usuario" />
+            <VBox alignment="CENTER_LEFT" spacing="10.0">
+                <Button onAction="#loadRegisterDelivery" prefHeight="35.0" prefWidth="210.0"
+                        style="-fx-background-color: #E67E50; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"
+                        text="Register Delivery Man" />
 
-        <Button layoutX="30.0" layoutY="240.0" mnemonicParsing="false" onAction="#loadUserManagement" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #E67E50; -fx-text-fill: white; -fx-background-radius: 5;" text="Gestionar Usuarios" />
+                <Button onAction="#loadRegisterUser" prefHeight="35.0" prefWidth="210.0"
+                        style="-fx-background-color: #E67E50; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"
+                        text="Register User" />
 
-        <Button layoutX="30.0" layoutY="285.0" mnemonicParsing="false" onAction="#loadDeliveryManagement" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #E67E50; -fx-text-fill: white; -fx-background-radius: 5;" text="Gestionar Repartidores" />
+                <Button onAction="#loadUserManagement" prefHeight="35.0" prefWidth="210.0"
+                        style="-fx-background-color: #E67E50; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"
+                        text="Manage Users" />
 
-        <Button layoutX="30.0" layoutY="330.0" mnemonicParsing="false" onAction="#loadEnvioManagement" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #E67E50; -fx-text-fill: white; -fx-background-radius: 5;" text="Gestionar Envíos" />
+                <Button onAction="#loadDeliveryManagement" prefHeight="35.0" prefWidth="210.0"
+                        style="-fx-background-color: #E67E50; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"
+                        text="Manage Delivery Men" />
 
-        <Separator layoutX="25.0" layoutY="385.0" prefWidth="200.0" />
+                <Button onAction="#loadEnvioManagement" prefHeight="35.0" prefWidth="210.0"
+                        style="-fx-background-color: #E67E50; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"
+                        text="Manage Shipments" />
+            </VBox>
 
-        <Label layoutX="40.0" layoutY="405.0" style="-fx-font-weight: bold;" text="REPORTES">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
+            <Separator prefWidth="210.0" style="-fx-background-color: #E67E50;" />
 
-        <Button layoutX="30.0" layoutY="435.0" mnemonicParsing="false" onAction="#loadMetrics" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #B8421F; -fx-text-fill: white; -fx-background-radius: 5;" text="Ver Métricas" />
+            <!-- Reports Section -->
+            <Label style="-fx-font-weight: bold; -fx-text-fill: white;" text="REPORTS">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Label>
 
-        <Button layoutX="30.0" layoutY="480.0" mnemonicParsing="false" onAction="#loadReports" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #B8421F; -fx-text-fill: white; -fx-background-radius: 5;" text="Generar Reportes" />
+            <VBox alignment="CENTER_LEFT" spacing="10.0">
+                <Button onAction="#loadMetrics" prefHeight="35.0" prefWidth="210.0"
+                        style="-fx-background-color: #B8421F; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"
+                        text="View Metrics" />
 
-        <Separator layoutX="25.0" layoutY="550.0" prefWidth="200.0" />
+                <Button onAction="#loadReports" prefHeight="35.0" prefWidth="210.0"
+                        style="-fx-background-color: #B8421F; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"
+                        text="Generate Reports" />
+            </VBox>
 
-        <Button fx:id="logout" layoutX="30.0" layoutY="580.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-background-radius: 5;" text="Cerrar Sesión" />
+            <!-- Spacer to push logout to bottom -->
+            <VBox VBox.vgrow="ALWAYS" />
+
+            <!-- Logout Button -->
+            <Button fx:id="logout" onAction="#logout" prefHeight="35.0" prefWidth="210.0"
+                    style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"
+                    text="Logout" />
+        </VBox>
     </AnchorPane>
 
-    <!-- Área de contenido dinámico -->
+    <!-- Dynamic Content Area -->
     <AnchorPane fx:id="contentArea" layoutX="250.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #FFFFFF;">
-        <!-- Contenido de bienvenida por defecto -->
+        <!-- Default welcome content -->
         <VBox alignment="CENTER" layoutX="100.0" layoutY="200.0" prefWidth="450.0" spacing="20.0">
-            <Label style="-fx-font-weight: bold;" text="Bienvenido al Panel de Administración">
+            <Label style="-fx-font-weight: bold;" text="Welcome to Admin Panel">
                 <font>
                     <Font size="24.0" />
                 </font>
             </Label>
-            <Label text="Selecciona una opción del menú lateral" textAlignment="CENTER" wrapText="true">
+            <Label text="Select an option from the side menu" textAlignment="CENTER" wrapText="true">
                 <font>
                     <Font size="14.0" />
                 </font>

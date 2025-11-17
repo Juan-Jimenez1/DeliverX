@@ -84,22 +84,14 @@ public class ShipmentManagementCo {
                     return cellData.getValue().getDateTime().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
                 })
         );
-
-        // Configurar ComboBox de estados
         statusFilterComboBox.setItems(FXCollections.observableArrayList(
                 "ALL", "SOLICITADO", "ASIGNADO", "EN_RUTA", "ENTREGADO", "CANCELADO"
         ));
         statusFilterComboBox.setValue("ALL");
-
-        // Inicializar listas
         shipmentsList = FXCollections.observableArrayList();
         filteredList = FXCollections.observableArrayList();
         shipmentsTable.setItems(filteredList);
-
-        // Configurar listeners
         setupListeners();
-
-        // Cargar datos iniciales
         loadShipmentsData();
 
         updateStatus("Sistema cargado. " + shipmentsList.size() + " envíos encontrados.");
@@ -111,7 +103,6 @@ public class ShipmentManagementCo {
             applyFilters();
         });
 
-        // Listener para selección de tabla
         shipmentsTable.getSelectionModel().selectedItemProperty().addListener(
                 (obs, oldSelection, newSelection) -> {
                     if (newSelection != null) {
@@ -260,7 +251,7 @@ public class ShipmentManagementCo {
             }
 
             if (shipment.getAdditionalServices() != null && !shipment.getAdditionalServices().isEmpty()) {
-                details.append("\nSERVICIOS ADICIONALES:\n");
+                details.append("\nADDITIONAL SERVICES:\n");
                 for (String service : shipment.getAdditionalServices()) {
                     details.append("• ").append(service).append("\n");
                 }
@@ -272,13 +263,13 @@ public class ShipmentManagementCo {
             textArea.setPrefSize(600, 500);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Detalles del Envío");
-            alert.setHeaderText("Información completa - " + shipment.getIdShipment());
+            alert.setTitle("Shipping Details");
+            alert.setHeaderText(" Full information- " + shipment.getIdShipment());
             alert.getDialogPane().setContent(textArea);
             alert.showAndWait();
         } catch (Exception e) {
-            showAlert(Alert.AlertType.ERROR, "Error de Detalles",
-                    "Error al mostrar detalles: " + e.getMessage());
+            showAlert(Alert.AlertType.ERROR, "Details Error",
+                    " Error displaying details: " + e.getMessage());
         }
     }
 
@@ -291,22 +282,21 @@ public class ShipmentManagementCo {
                     .collect(Collectors.toList());
 
             if (availableDeliveryMen.isEmpty()) {
-                showAlert(Alert.AlertType.WARNING, "Sin Repartidores",
-                        "No hay repartidores disponibles en este momento.");
+                showAlert(Alert.AlertType.WARNING, "No Delivery Drivers",
+                        "There are no delivery drivers available at this time.");
                 return;
             }
 
             ChoiceDialog<DeliveryMan> dialog = new ChoiceDialog<>(availableDeliveryMen.get(0), availableDeliveryMen);
-            dialog.setTitle("Asignar Repartidor");
-            dialog.setHeaderText("Asignar repartidor al envío: " + shipment.getIdShipment());
-            dialog.setContentText("Seleccione un repartidor:");
+            dialog.setTitle("Assign Delivery Driver");
+            dialog.setHeaderText("Assign delivery driver to the shipment: " + shipment.getIdShipment());
+            dialog.setContentText("Select a delivery person:");
 
             Optional<DeliveryMan> result = dialog.showAndWait();
             result.ifPresent(deliveryMan -> {
                 try {
                     shipment.setDeliveryMan(deliveryMan);
 
-                    // Cambiar estado a ASIGNADO si está en SOLICITADO
                     if (shipment.getCurrentState().getStateName().equals("SOLICITADO")) {
                         shipment.changeState(new AssignedState());
                     }
@@ -319,11 +309,11 @@ public class ShipmentManagementCo {
                     deliverX.updateDeliveryMan(deliveryMan.getUserId(), deliveryMan);
 
                     loadShipmentsData();
-                    updateStatus("Repartidor " + deliveryMan.getName() + " asignado al envío " + shipment.getIdShipment());
+                    updateStatus("Repartidor " + deliveryMan.getName() + " assigned to the shipment " + shipment.getIdShipment());
 
                 } catch (Exception e) {
-                    showAlert(Alert.AlertType.ERROR, "Error de Asignación",
-                            "Error al asignar repartidor: " + e.getMessage());
+                    showAlert(Alert.AlertType.ERROR, "Error assigning",
+                            "Error assigning delivery person: " + e.getMessage());
                 }
             });
 
@@ -409,8 +399,8 @@ public class ShipmentManagementCo {
     private void deleteShipment(Shipment shipment) {
         try {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmar Eliminación");
-            alert.setHeaderText("¿Está seguro de eliminar este envío?");
+            alert.setTitle("Confirm Deletion");
+            alert.setHeaderText("¿Are you sure you want to delete this shipment??");
             alert.setContentText("Envío: " + shipment.getIdShipment() +
                     "\nCliente: " + (shipment.getCustomer() != null ? shipment.getCustomer().getName() : "N/A") +
                     "\nEstado: " + shipment.getCurrentState().getStateName() +
@@ -421,15 +411,15 @@ public class ShipmentManagementCo {
                 boolean success = deliverX.deleteShipment(shipment.getIdShipment());
                 if (success) {
                     loadShipmentsData();
-                    updateStatus("Envío eliminado: " + shipment.getIdShipment());
+                    updateStatus("Sending removed: " + shipment.getIdShipment());
                 } else {
-                    showAlert(Alert.AlertType.ERROR, "Error de Eliminación",
-                            "No se pudo eliminar el envío. Verifique que esté en estado SOLICITADO o CANCELADO.");
+                    showAlert(Alert.AlertType.ERROR, "Deletion Error",
+                            "The submission could not be deleted. Please check that it is in REQUESTED or CANCELLED status.");
                 }
             }
         } catch (Exception e) {
             showAlert(Alert.AlertType.ERROR, "Error de Eliminación",
-                    "Error al eliminar envío: " + e.getMessage());
+                    "Error deleting submission: " + e.getMessage());
         }
     }
 

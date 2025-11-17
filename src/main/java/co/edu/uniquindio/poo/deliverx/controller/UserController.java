@@ -66,4 +66,8 @@ public class UserController {
         Stage stage = (Stage) logout.getScene().getWindow();
         stage.close();
     }
+
+    public void makePdf(MouseEvent mouseEvent) {
+        cargarFXMLEnAnchorPane("/co/edu/uniquindio/poo/deliverx/user/report_pdf.fxml",layout);
+    }
 }
