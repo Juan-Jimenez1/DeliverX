@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.deliverx.controller.UserManagementController">
+
+    <VBox layoutX="25.0" layoutY="25.0" prefWidth="600.0" spacing="20.0">
+        <Label text="User Management" style="-fx-font-weight: bold;">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+
+        <HBox spacing="15.0" alignment="CENTER_LEFT">
+            <TextField fx:id="searchField" promptText="Search by ID or name" prefWidth="300.0"
+                       style="-fx-background-radius: 5;"/>
+            <Button text="Search" onAction="#handleSearch" prefWidth="100.0"
+                    style="-fx-background-color: #CC5E13; -fx-text-fill: white; -fx-background-radius: 5;"/>
+            <Button text="Refresh" onAction="#handleRefresh" prefWidth="100.0"
+                    style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-background-radius: 5;"/>
+        </HBox>
+
+        <TableView fx:id="userTable" prefHeight="400.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="userIdColumn" text="User ID" prefWidth="100.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="userId" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="nameColumn" text="Name" prefWidth="150.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="emailColumn" text="Email" prefWidth="150.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="email" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="phoneColumn" text="Phone" prefWidth="120.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="phoneNumber" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+
+        <HBox spacing="15.0" alignment="CENTER">
+            <Button text="View Details" onAction="#handleViewDetails" prefWidth="130.0"
+                    style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-background-radius: 5;"/>
+            <Button text="Edit" onAction="#handleEdit" prefWidth="130.0"
+                    style="-fx-background-color: #F39C12; -fx-text-fill: white; -fx-background-radius: 5;"/>
+            <Button text="Delete" onAction="#handleDelete" prefWidth="130.0"
+                    style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-background-radius: 5;"/>
+        </HBox>
+
+        <Label fx:id="statusLabel" textFill="#2C3E50">
+            <font><Font size="12.0"/></font>
+        </Label>
+    </VBox>
+</AnchorPane>
