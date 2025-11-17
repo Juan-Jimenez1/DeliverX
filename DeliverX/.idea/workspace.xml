@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b603b93a-906b-4e18-aa13-1761e30bff97" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/hello-view.fxml" beforeDir="false" />
     </list>
-    <list id="cba02e3e-41d9-4db3-8aeb-880d78650806" name="Changes by Asus" comment="" />
-    <list id="82f43afa-9a2c-48fb-8fde-84d1cf1036a9" name="Changes by Maria" comment="" />
+    <list id="cba02e3e-41d9-4db3-8aeb-880d78650806" name="Changes by Asus" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/MetricsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/MetricsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/DeliveryMan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/DeliveryMan.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +40,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.App.executor": "Run",
+    "Application.App.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -94,7 +96,7 @@
       <workItem from="1763249856346" duration="4020000" />
       <workItem from="1763255033523" duration="15371000" />
       <workItem from="1763303494320" duration="10640000" />
-      <workItem from="1763315284060" duration="20453000" />
+      <workItem from="1763315284060" duration="23781000" />
     </task>
     <servers />
   </component>

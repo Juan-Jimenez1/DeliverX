@@ -6,7 +6,7 @@ import co.edu.uniquindio.poo.deliverx.model.state.InRouteDeliveryState;
 import co.edu.uniquindio.poo.deliverx.model.state.ShipmentState;
 
 public class DeliveryMan extends User{
-    private DeliveryManState state;
+    public DeliveryManState state;
     private String zonaCobertura;
     private Shipment currentShipment;
     private ShipmentState shipmentState;
