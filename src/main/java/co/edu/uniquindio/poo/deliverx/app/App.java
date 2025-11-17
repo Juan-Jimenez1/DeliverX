@@ -32,42 +32,18 @@ public class App extends Application {
         deliverX.registerAdmin(admin);
         System.out.println("Admin registrado: " + admin.getName() + " - ID: " + admin.getUserId());
 
-        Customer customer1 = new Customer.Builder<>()
-                .userId("1")
-                .name("Jose")
-                .password("1")
-                .email("jose@email.com")
-                .phoneNumber("962600000")
-                .build();
+        Customer customer1 = new Customer.Builder<>().userId("1").name("Jose").password("1").email("jose@email.com").phoneNumber("962600000").build();
 
-        Customer customer2 = new Customer.Builder<>()
-                .userId("2")
-                .name("Maria")
-                .password("2")
-                .email("maria@email.com")
-                .phoneNumber("962600001")
-                .build();
+        Customer customer2 = new Customer.Builder<>().userId("2").name("Maria").password("2").email("maria@email.com").phoneNumber("962600001").build();
 
-        Customer customer3 = new Customer.Builder<>()
-                .userId("3")
-                .name("Carlos")
-                .password("3")
-                .email("carlos@email.com")
-                .phoneNumber("962600002")
-                .build();
+        Customer customer3 = new Customer.Builder<>().userId("3").name("Carlos").password("3").email("carlos@email.com").phoneNumber("962600002").build();
 
         deliverX.registerCustomer(customer1);
         deliverX.registerCustomer(customer2);
         deliverX.registerCustomer(customer3);
         System.out.println("Clientes registrados");
 
-        DeliveryMan deliveryMan = new DeliveryMan.Builder<>()
-                .userId("100")
-                .name("Pedro Repartidor")
-                .password("1")
-                .email("pedro@deliverx.com")
-                .phoneNumber("962600100")
-                .build();
+        DeliveryMan deliveryMan = new DeliveryMan.Builder<>().userId("100").name("Pedro Repartidor").password("1").email("pedro@deliverx.com").phoneNumber("962600100").build();
 
         deliverX.registerDeliveryMan(deliveryMan);
         System.out.println("Repartidor registrado: " + deliveryMan.getName() + " - ID: " + deliveryMan.getUserId());
@@ -90,7 +66,6 @@ public class App extends Application {
         services.add("PACKAGING");
         services.add("INSURANCE");
 
-        // Crear direcciones
         Address origin1 = new Address("1", "cra9", "armenia", "house", 12, 11);
         Address destination1 = new Address("2", "cra10", "armenia", "house", 50, 100);
         Address origin2 = new Address("3", "cra15", "pereira", "apartment", 20, 30);
@@ -127,7 +102,6 @@ public class App extends Application {
         stage.setResizable(false);
         stage.show();
 
-        // Mostrar usuarios disponibles para login
         System.out.println("\n=== USUARIOS DISPONIBLES PARA LOGIN ===");
         System.out.println("Admin: ID=0, Password=1");
         System.out.println("Cliente Jose: ID=1, Password=1");

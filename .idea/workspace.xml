@@ -5,7 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2f104db-fbb4-4743-b9b5-8e70ef4bd369" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/loggin/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/loggin/home.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/PdfGeneratorControllerAdmin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/admin/reportAdmin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/DeliveryHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/DeliveryHistoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/DeliveryManController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/DeliveryManController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/DeliveryManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/DeliveryManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/DeliveryUpdateStatusController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/DeliveryUpdateStatusController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/PdfGeneratorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/PdfGeneratorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/UserNewOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/UserNewOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/pdfGenerator/PdfShipmentsByStateReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/model/pdfGenerator/PdfShipmentsByStateReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/admin/admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/admin/admin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/admin/metrics.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/admin/metrics.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/admin/report_pdf.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/user/report_pdf.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/admin/userManagement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/admin/userManagement.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/user/userDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/user/userDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/user/userNewShipment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/user/userNewShipment.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,8 +90,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Asus\IdeaProjects\2025-ll PD\DeliverX\src\main\resources\co\edu\uniquindio\poo\deliverx" />
       <recent name="C:\Users\Asus\IdeaProjects\2025-ll PD\DeliverX\src\main\resources\co\edu\uniquindio\poo\deliverx\user" />
+      <recent name="C:\Users\Asus\IdeaProjects\2025-ll PD\DeliverX\src\main\resources\co\edu\uniquindio\poo\deliverx" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -96,7 +115,8 @@
       <workItem from="1763377570258" duration="1679000" />
       <workItem from="1763379277504" duration="1035000" />
       <workItem from="1763380334596" duration="787000" />
-      <workItem from="1763381169446" duration="8591000" />
+      <workItem from="1763381169446" duration="11744000" />
+      <workItem from="1763394197909" duration="4328000" />
     </task>
     <servers />
   </component>
@@ -108,7 +128,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/app/App.java</url>
-          <line>143</line>
+          <line>118</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

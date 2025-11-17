@@ -194,21 +194,14 @@ public class DeliveryManController {
     }
     public void cargarFXMLEnAnchorPane(String nombreArchivoFxml, AnchorPane contenedor) {
         try {
-            // Limpiar el contenedor
             contenedor.getChildren().clear();
-
             FXMLLoader loader = new FXMLLoader(getClass().getResource(nombreArchivoFxml));
             Parent contenido = loader.load();
-
-            // Anclar el contenido a los bordes del AnchorPane
             AnchorPane.setTopAnchor(contenido, 0.0);
             AnchorPane.setBottomAnchor(contenido, 0.0);
             AnchorPane.setLeftAnchor(contenido, 0.0);
             AnchorPane.setRightAnchor(contenido, 0.0);
-
-            // Añadir el contenido al contenedor
             contenedor.getChildren().add(contenido);
-
         } catch (Exception e) {
             e.printStackTrace();
         }

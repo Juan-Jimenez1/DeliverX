@@ -18,80 +18,56 @@ public class PdfGeneratorController {
     private TextField txtShipmentId;
 
     @FXML
-    private TextField txtFilename;
-
-    @FXML
-    private TextArea txtInfo;
-
-    @FXML
-    private Button btnGeneratePdf;
-
-    @FXML
-    private Label lblStatus;
-
-    @FXML
     private ProgressBar progressBar;
 
     @FXML
     private TextArea txtPreview;
 
+
     private DeliverX deliverX;
+
     private static final String OUTPUT_PATH = "C:\\Users\\Asus\\lol\\";
 
     @FXML
     public void initialize() {
         deliverX = DeliverX.getInstance();
-        lblStatus.setText("Complete los campos y genere el recibo PDF");
         progressBar.setVisible(false);
     }
 
     @FXML
     public void generatePdf(ActionEvent event) {
-        // Validar campos
+
         String shipmentId = txtShipmentId.getText().trim();
-        String filename = txtFilename.getText().trim();
 
         if (shipmentId.isEmpty()) {
-            showError("Por favor ingrese el ID del envío");
+            showError("Please enter a shipment ID.");
             return;
         }
 
-        if (filename.isEmpty()) {
-            filename = "recibo_" + shipmentId;
-            txtFilename.setText(filename);
-        }
-
-        // Buscar el envío
         Shipment shipment = deliverX.getShipment(shipmentId);
 
         if (shipment == null) {
-            showError("No se encontró el envío con ID: " + shipmentId);
+            showError("No shipment found with ID: " + shipmentId);
             return;
         }
 
-        // Mostrar progreso
         progressBar.setVisible(true);
         progressBar.setProgress(0.3);
-        lblStatus.setText("Generando PDF...");
-        lblStatus.setStyle("-fx-text-fill: #3498db;");
 
-        // Generar vista previa
         generatePreview(shipment, shipmentId);
 
-        // Generar PDF en un hilo separado
-        String finalFilename = filename;
         new Thread(() -> {
             try {
-                PdfReceiptShipmentReport pdfReport = new PdfReceiptShipmentReport(shipment);
-                pdfReport.generatePDFReport(finalFilename, shipmentId);
 
-                // Actualizar UI en el hilo de JavaFX
+                String filename = "receipt_" + shipmentId;
+
+                PdfReceiptShipmentReport pdfReport = new PdfReceiptShipmentReport(shipment);
+                pdfReport.generatePDFReport(filename, shipmentId);
+
                 Platform.runLater(() -> {
                     progressBar.setProgress(1.0);
-                    lblStatus.setText("✓ PDF generado exitosamente: " + finalFilename + ".pdf");
-                    lblStatus.setStyle("-fx-text-fill: #27ae60; -fx-font-weight: bold;");
 
-                    // Ocultar barra de progreso después de 2 segundos
+                    // Hide progress bar after 2 seconds
                     new Thread(() -> {
                         try {
                             Thread.sleep(2000);
@@ -99,15 +75,13 @@ public class PdfGeneratorController {
                                 progressBar.setVisible(false);
                                 progressBar.setProgress(0);
                             });
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+                        } catch (InterruptedException ignored) {}
                     }).start();
                 });
 
             } catch (Exception e) {
                 Platform.runLater(() -> {
-                    showError("Error al generar el PDF: " + e.getMessage());
+                    showError("Error generating PDF: " + e.getMessage());
                     progressBar.setVisible(false);
                     progressBar.setProgress(0);
                 });
@@ -117,9 +91,10 @@ public class PdfGeneratorController {
     }
 
     private void generatePreview(Shipment shipment, String id) {
+
         StringBuilder preview = new StringBuilder();
         preview.append("═══════════════════════════════════════\n");
-        preview.append("       ORDER RECEIPT ID ").append(id).append("\n");
+        preview.append("          ORDER RECEIPT ID ").append(id).append("\n");
         preview.append("═══════════════════════════════════════\n\n");
 
         preview.append("Shipment ID: ").append(id).append("\n");
@@ -148,11 +123,7 @@ public class PdfGeneratorController {
     @FXML
     public void clearFields(ActionEvent event) {
         txtShipmentId.clear();
-        txtFilename.clear();
-        txtInfo.clear();
         txtPreview.clear();
-        lblStatus.setText("Complete los campos y genere el recibo PDF");
-        lblStatus.setStyle("-fx-text-fill: #7f8c8d; -fx-font-weight: normal;");
         progressBar.setVisible(false);
         progressBar.setProgress(0);
     }
@@ -163,28 +134,23 @@ public class PdfGeneratorController {
             File folder = new File(OUTPUT_PATH);
 
             if (!folder.exists()) {
-                showError("La carpeta no existe: " + OUTPUT_PATH);
+                showError("The folder does not exist: " + OUTPUT_PATH);
                 return;
             }
 
             if (Desktop.isDesktopSupported()) {
                 Desktop.getDesktop().open(folder);
-                lblStatus.setText("Carpeta abierta exitosamente");
-                lblStatus.setStyle("-fx-text-fill: #3498db;");
             } else {
-                showError("No se puede abrir la carpeta en este sistema");
+                showError("This system cannot open folders automatically.");
             }
 
         } catch (IOException e) {
-            showError("Error al abrir la carpeta: " + e.getMessage());
+            showError("Error opening folder: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
     private void showError(String message) {
-        lblStatus.setText("✗ " + message);
-        lblStatus.setStyle("-fx-text-fill: #e74c3c; -fx-font-weight: bold;");
-
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(null);
