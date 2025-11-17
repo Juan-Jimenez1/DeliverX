@@ -1,3 +1,227 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a2f104db-fbb4-4743-b9b5-8e70ef4bd369" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/PdfGeneratorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/controller/ShipmentManagementCo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/admin/report_pdf.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/admin/shipment_management.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/user/userDashboard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/user/userMyShipments.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/user/userNewShipment.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/user/userPayMethods.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/poo/deliverx/user/userProfile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/app/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/AdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/DeliveryAssignedOrdersController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/DeliveryHistoryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/DeliveryManController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/DeliveryManagementController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/DeliveryProfile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/DeliveryUpdateStatusController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/MetricsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/RegisterDeliveryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/RegisterUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/UserManagementController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/UserNewOrderController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/UserOrdersController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/UserPanelController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/UserPaymentMethodsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/controller/UserProfileController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/Address.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/Admin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/DeliverX.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/DeliveryMan.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/Pay.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/PaymentMethod.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/Rate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/Shipment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/ShipmentType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/Strategy/ExpressStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/Strategy/NormalStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/Strategy/RateCalculator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/Strategy/RateStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/TransactionResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/BasicShipment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/FragileDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/InsuranceDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/PriorityDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/ShipmentComponent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/ShipmentDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/SignatureRequiredDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/decorator/SpecialPackagingDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/facade/DeliverXFacade.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/factory/ShipmentFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/observer/EmailNotificationObserver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/observer/ObservableShipment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/observer/SMSNotificationObserver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/observer/ShipmentObserver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/observer/ShipmentSubject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/pdfGenerator/PdfReceiptShipmentReport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/pdfGenerator/PdfShipmentsByStateReport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/pdfGenerator/PdfShipmentsPerMonthReportGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/pdfGenerator/adapter/MonthPdfAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/pdfGenerator/adapter/PdfReportGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/pdfGenerator/adapter/ReceiptPdfAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/pdfGenerator/adapter/StatePdfAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/state/ActiveState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/state/AssignedState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/state/CancelledState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/state/DeliveredState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/state/DeliveryManState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/state/InRouteDeliveryState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/state/InRouteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/state/InactiveState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/state/RequestedState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/co/edu/uniquindio/poo/deliverx/model/state/ShipmentState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/admin/admin.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/admin/deliveryManagement.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/admin/metrics.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/admin/registerDelivery.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/admin/userManagement.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/delivery/delivery.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/delivery/deliveryAssignedOrders.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/delivery/deliveryHistory.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/delivery/deliveryProfile.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/delivery/deliveryUpdateStatus.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/loggin/home.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/loggin/registerUser.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/user/userDashboard.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/user/userMyShipments.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/user/userNewShipment.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/user/userPayMethods.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverX/src/main/resources/co/edu/uniquindio/poo/deliverx/user/userProfile.fxml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;aurasoff&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Juan-Jimenez1/DeliverX.git&quot;,
+    &quot;accountId&quot;: &quot;7384023d-6e5d-4fdd-8e76-b2b9a5028ba4&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="35aWcGHPXDZmET6XqMiY9xoAMs9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Asus\IdeaProjects\2025-ll PD\DeliverX\src\main\resources\co\edu\uniquindio\poo\deliverx" />
+      <recent name="C:\Users\Asus\IdeaProjects\2025-ll PD\DeliverX\src\main\resources\co\edu\uniquindio\poo\deliverx\user" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a2f104db-fbb4-4743-b9b5-8e70ef4bd369" name="Changes" comment="" />
+      <created>1763348741448</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1763348741448</updated>
+      <workItem from="1763348742854" duration="12958000" />
+      <workItem from="1763362708810" duration="41000" />
+      <workItem from="1763377570258" duration="1679000" />
+      <workItem from="1763379277504" duration="1035000" />
+      <workItem from="1763380334596" duration="787000" />
+      <workItem from="1763381169446" duration="8210000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/co/edu/uniquindio/poo/deliverx/app/App.java</url>
+          <line>143</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
 </project>

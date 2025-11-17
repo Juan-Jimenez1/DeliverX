@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToWidth="true" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.deliverx.controller.MetricsController">
+
+    <VBox spacing="25.0" style="-fx-background-color: #f5f5f5;">
+        <padding>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+        </padding>
+
+        <!-- Header -->
+        <HBox alignment="CENTER_LEFT" spacing="15.0">
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="📊 Metrics Dashboard">
+                <font><Font size="28.0" /></font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="lastUpdateLabel" style="-fx-text-fill: #7f8c8d;" text="Last update: --:--">
+                <font><Font size="12.0" /></font>
+            </Label>
+        </HBox>
+
+        <Separator />
+
+        <!-- Section 1: Key KPIs -->
+        <VBox spacing="15.0">
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #34495e;" text="Key Performance Indicators">
+                <font><Font size="20.0" /></font>
+            </Label>
+
+            <GridPane hgap="20.0" vgap="20.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" percentWidth="25.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" percentWidth="25.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" percentWidth="25.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" percentWidth="25.0" />
+                </columnConstraints>
+
+                <!-- Card: Total Users -->
+                <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
+                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <Label style="-fx-font-size: 24px;" text="👥" />
+                        <Label style="-fx-text-fill: #7f8c8d; -fx-font-size: 13px;" text="Total Users" />
+                    </HBox>
+                    <Label fx:id="totalUsersLabel" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="0">
+                        <font><Font size="36.0" /></font>
+                    </Label>
+                    <Label fx:id="usersGrowthLabel" style="-fx-text-fill: #27ae60; -fx-font-size: 11px;" text="↑ 0% vs last month" />
+                </VBox>
+
+                <!-- Card: Active Delivery Men -->
+                <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
+                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <Label style="-fx-font-size: 24px;" text="🚴" />
+                        <Label style="-fx-text-fill: #7f8c8d; -fx-font-size: 13px;" text="Active Delivery Men" />
+                    </HBox>
+                    <Label fx:id="activeDeliveriesLabel" style="-fx-font-weight: bold; -fx-text-fill: #27ae60;" text="0">
+                        <font><Font size="36.0" /></font>
+                    </Label>
+                    <Label fx:id="deliveriesStatusLabel" style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px;" text="Currently on service" />
+                </VBox>
+
+                <!-- Card: Average Delivery Time -->
+                <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                    <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
+                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <Label style="-fx-font-size: 24px;" text="⏱️" />
+                        <Label style="-fx-text-fill: #7f8c8d; -fx-font-size: 13px;" text="Average Time" />
+                    </HBox>
+                    <Label fx:id="avgDeliveryTimeLabel" style="-fx-font-weight: bold; -fx-text-fill: #f39c12;" text="0 min">
+                        <font><Font size="36.0" /></font>
+                    </Label>
+                </VBox>
+
+                <!-- Card: Monthly Revenue -->
+                <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                    <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
+                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <Label style="-fx-font-size: 24px;" text="💰" />
+                        <Label style="-fx-text-fill: #7f8c8d; -fx-font-size: 13px;" text="Monthly Revenue" />
+                    </HBox>
+                    <Label fx:id="monthlyRevenueLabel" style="-fx-font-weight: bold; -fx-text-fill: #f39c12;" text="0">
+                        <font><Font size="36.0" /></font>
+                    </Label>
+                </VBox>
+                <rowConstraints>
+                    <RowConstraints />
+                </rowConstraints>
+            </GridPane>
+        </VBox>
+
+        <Separator />
+
+        <!-- Section 2: Main Charts -->
+        <HBox spacing="20.0">
+            <!-- Revenue by Period Chart -->
+            <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
+
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #34495e;" text="📈 Revenue by Period">
+                        <font><Font size="16.0" /></font>
+                    </Label>
+                    <Region HBox.hgrow="ALWAYS" />
+                    <ComboBox fx:id="revenuePeriodCombo" prefWidth="120.0" promptText="Period" />
+                </HBox>
+
+                <LineChart fx:id="revenueChart" prefHeight="300.0">
+                    <xAxis>
+                        <CategoryAxis fx:id="revenueXAxis" label="Period" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis fx:id="revenueYAxis" label="Revenue ($)" side="LEFT" />
+                    </yAxis>
+                </LineChart>
+            </VBox>
+
+            <!-- Additional Services Chart -->
+            <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
+
+                <Label style="-fx-font-weight: bold; -fx-text-fill: #34495e;" text="🎯 Most Used Additional Services">
+                    <font><Font size="16.0" /></font>
+                </Label>
+
+                <PieChart fx:id="additionalServicesChart" legendSide="RIGHT" prefHeight="300.0" prefWidth="350.0" />
+            </VBox>
+        </HBox>
+
+        <!-- Section 3: Delivery Times and Zones -->
+        <HBox spacing="20.0">
+            <!-- Delivery Time Distribution Chart -->
+            <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
+
+                <Label style="-fx-font-weight: bold; -fx-text-fill: #34495e;" text="⏰ Delivery Time Distribution">
+                    <font><Font size="16.0" /></font>
+                </Label>
+
+                <BarChart fx:id="deliveryTimeChart" legendVisible="false" prefHeight="300.0">
+                    <xAxis>
+                        <CategoryAxis fx:id="timeXAxis" label="Time Range (min)" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis fx:id="timeYAxis" label="Number of Deliveries" side="LEFT" />
+                    </yAxis>
+                </BarChart>
+            </VBox>
+
+            <!-- Incidents by Zone -->
+            <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
+
+                <Label style="-fx-font-weight: bold; -fx-text-fill: #34495e;" text="⚠ Incidents by Zone">
+                    <font><Font size="16.0" /></font>
+                </Label>
+
+                <BarChart fx:id="incidentsByZoneChart" legendVisible="false" prefHeight="300.0">
+                    <xAxis>
+                        <CategoryAxis fx:id="zoneXAxis" label="Zone" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis fx:id="zoneYAxis" label="Number of Incidents" side="LEFT" />
+                    </yAxis>
+                </BarChart>
+            </VBox>
+        </HBox>
+
+        <!-- Section 4: Detailed Statistics Table -->
+        <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+            <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
+
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #34495e;" text="📋 Detailed Statistics by Zone">
+                <font><Font size="16.0" /></font>
+            </Label>
+
+            <TableView fx:id="zoneStatsTable" prefHeight="250.0">
+                <columns>
+                    <TableColumn fx:id="zoneNameColumn" prefWidth="150.0" text="Zone" />
+                    <TableColumn fx:id="zoneDeliveriesColumn" prefWidth="100.0" text="Deliveries" />
+                    <TableColumn fx:id="zoneAvgTimeColumn" prefWidth="120.0" text="Avg. Time" />
+                    <TableColumn fx:id="zoneIncidentsColumn" prefWidth="100.0" text="Incidents" />
+                    <TableColumn fx:id="zoneRevenueColumn" prefWidth="120.0" text="Revenue" />
+                    <TableColumn fx:id="zoneRatingColumn" prefWidth="100.0" text="Rating" />
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Section 5: Additional Metrics -->
+        <GridPane hgap="20.0" vgap="20.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" percentWidth="33.33" />
+                <ColumnConstraints hgrow="SOMETIMES" percentWidth="33.33" />
+                <ColumnConstraints hgrow="SOMETIMES" percentWidth="33.33" />
+            </columnConstraints>
+
+            <!-- Card: Administrators -->
+            <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <Label style="-fx-font-size: 24px;" text="👨‍💼" />
+                    <Label style="-fx-text-fill: #7f8c8d; -fx-font-size: 13px;" text="Administrators" />
+                </HBox>
+                <Label fx:id="adminsLabel" style="-fx-font-weight: bold; -fx-text-fill: #e67e22;" text="0">
+                    <font><Font size="32.0" /></font>
+                </Label>
+            </VBox>
+
+            <!-- Card: Inactive Delivery Men -->
+            <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <Label style="-fx-font-size: 24px;" text="⏸️" />
+                    <Label style="-fx-text-fill: #7f8c8d; -fx-font-size: 13px;" text="Inactive Delivery Men" />
+                </HBox>
+                <Label fx:id="inactiveDeliveriesLabel" style="-fx-font-weight: bold; -fx-text-fill: #CC5E13;" text="0">
+                    <font><Font size="32.0" /></font>
+                </Label>
+            </VBox>
+            <rowConstraints>
+                <RowConstraints />
+            </rowConstraints>
+        </GridPane>
+
+        <!-- Action Buttons -->
+        <HBox alignment="CENTER" spacing="15.0">
+            <Button onAction="#handleRefresh" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #CC5E13; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold;" text="🔄 Refresh Data">
+                <font><Font size="14.0" /></font>
+            </Button>
+            <Button onAction="#handleViewDetails" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #CC5E13; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold;" text="🔍 View Details">
+                <font><Font size="14.0" /></font>
+            </Button>
+        </HBox>
+    </VBox>
+</ScrollPane>
