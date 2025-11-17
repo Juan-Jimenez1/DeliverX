@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo.deliverx.model.facade;
 
-import co.edu.uniquindio.poo.deliverx.ShipmentType;
+import co.edu.uniquindio.poo.deliverx.model.ShipmentType;
 import co.edu.uniquindio.poo.deliverx.model.*;
 import co.edu.uniquindio.poo.deliverx.model.Strategy.ExpressStrategy;
 import co.edu.uniquindio.poo.deliverx.model.Strategy.NormalStrategy;

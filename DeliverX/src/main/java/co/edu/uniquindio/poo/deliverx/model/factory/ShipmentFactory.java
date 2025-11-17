@@ -1,11 +1,10 @@
 package co.edu.uniquindio.poo.deliverx.model.factory;
 
-import co.edu.uniquindio.poo.deliverx.ShipmentType;
+import co.edu.uniquindio.poo.deliverx.model.ShipmentType;
 import co.edu.uniquindio.poo.deliverx.model.*;
 import co.edu.uniquindio.poo.deliverx.model.Strategy.RateStrategy;
 import co.edu.uniquindio.poo.deliverx.model.facade.DeliverXFacade;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public class ShipmentFactory {

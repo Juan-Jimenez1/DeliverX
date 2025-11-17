@@ -1,5 +1,4 @@
 package co.edu.uniquindio.poo.deliverx.model;
-import co.edu.uniquindio.poo.deliverx.ShipmentType;
 import co.edu.uniquindio.poo.deliverx.model.state.RequestedState;
 import co.edu.uniquindio.poo.deliverx.model.state.ShipmentState;
 import java.time.LocalDate;

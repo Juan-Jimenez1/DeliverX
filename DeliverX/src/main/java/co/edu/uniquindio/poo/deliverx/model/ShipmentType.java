@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo.deliverx;
+package co.edu.uniquindio.poo.deliverx.model;
 
 public enum ShipmentType {
     NORMAL,
