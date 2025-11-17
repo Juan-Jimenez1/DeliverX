@@ -31,14 +31,14 @@ public class HomeController {
         String password = passwordId.getText().trim();
 
         if (userId.isEmpty() || password.isEmpty()) {
-            mostrarError("Por favor ingrese usuario y contraseña");
+            mostrarError("Please enter username and password");
             return;
         }
 
         boolean loginExitoso = deliverX.loginUser(userId, password);
 
         if (!loginExitoso) {
-            mostrarError("Usuario o contraseña incorrectos");
+            mostrarError("Incorrect username or password");
             return;
         }
 
@@ -54,7 +54,7 @@ public class HomeController {
             irPantalla("/co/edu/uniquindio/poo/deliverx/user/userDashboard.fxml", "Customer");
         }
         else {
-            mostrarError("Tipo de usuario desconocido");
+            mostrarError("Unknown user type");
         }
     }
 
