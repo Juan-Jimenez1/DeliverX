@@ -61,7 +61,7 @@
             <Label text="Select destination address:" />
             <ComboBox fx:id="destinationComboBox" prefWidth="450.0" style="-fx-background-radius: 5; -fx-font-size: 14px;" />
 
-            <Button onAction="#handleAddNewAddress" prefWidth="200.0" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;" text="➕ Add New Address" />
+            <Button onAction="#handleAddNewAddress" prefWidth="200.0" style="-fx-background-color: linear-gradient(to right, #CC5E13, #E67E22); -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;" text="➕ Add New Address" />
 
             <Separator prefWidth="500.0" />
 
@@ -71,7 +71,7 @@
             </Label>
 
             <Label text="Origin address (fixed):" />
-            <ComboBox fx:id="originComboBox" prefWidth="450.0" style="-fx-background-radius: 5; -fx-font-size: 14px;"/>
+            <ComboBox fx:id="originComboBox" prefWidth="450.0" style="-fx-background-radius: 5; -fx-font-size: 14px;" />
 
             <Separator prefWidth="500.0" />
 
@@ -102,7 +102,7 @@
                         <font><Font size="16.0" /></font>
                     </Label>
                     <Label fx:id="estimatedCostLabel" text="Costo estimado: $0.00" textFill="#CC5E13">
-                        <font><Font size="16.0"/></font>
+                        <font><Font size="16.0" /></font>
                     </Label>
                 </VBox>
                 <Button onAction="#handleCalculateCost" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #E67E22; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;" text="Calculate Cost" />

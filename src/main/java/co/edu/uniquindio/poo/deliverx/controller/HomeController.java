@@ -45,13 +45,13 @@ public class HomeController {
         User userLogged = deliverX.getUserLoged();
 
         if (userLogged instanceof Admin admin) {
-            irPantalla("/co/edu/uniquindio/poo/deliverx/admin/admin.fxml", "Administrador");
+            irPantalla("/co/edu/uniquindio/poo/deliverx/admin/admin.fxml", "Admin");
         }
         else if (userLogged instanceof DeliveryMan deliveryMan) {
-            irPantalla("/co/edu/uniquindio/poo/deliverx/delivery/delivery.fxml", "Repartidor");
+            irPantalla("/co/edu/uniquindio/poo/deliverx/delivery/delivery.fxml", "Delivery");
         }
         else if (userLogged instanceof Customer customer) {
-            irPantalla("/co/edu/uniquindio/poo/deliverx/user/userDashboard.fxml", "Cliente");
+            irPantalla("/co/edu/uniquindio/poo/deliverx/user/userDashboard.fxml", "Customer");
         }
         else {
             mostrarError("Tipo de usuario desconocido");
