@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.poo.deliverx.controller.UserNewOrderController">
+    <AnchorPane prefHeight="650.0" prefWidth="580.0">
+        <VBox layoutX="40.0" layoutY="25.0" prefWidth="500.0" spacing="20.0">
+
+            <Label text="Create New Order" style="-fx-font-weight: bold;">
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Label>
+
+            <Separator prefWidth="500.0" />
+
+            <Label text="Shipment Information" style="-fx-font-weight: bold;">
+                <font><Font size="16.0"/></font>
+            </Label>
+
+            <GridPane hgap="15.0" vgap="15.0" prefWidth="500.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" prefWidth="150.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="300.0" prefWidth="300.0" />
+                </columnConstraints>
+
+                <Label text="Package Weight (kg):" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <font><Font size="14.0"/></font>
+                </Label>
+                <TextField fx:id="weightField" promptText="e.g., 2.5" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                           style="-fx-background-radius: 5;"/>
+
+                <Label text="Dimensions (cm):" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <font><Font size="14.0"/></font>
+                </Label>
+                <HBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <TextField fx:id="heightField" promptText="Height" prefWidth="90.0" style="-fx-background-radius: 5;"/>
+                    <TextField fx:id="widthField" promptText="Width" prefWidth="90.0" style="-fx-background-radius: 5;"/>
+                    <TextField fx:id="depthField" promptText="Depth" prefWidth="90.0" style="-fx-background-radius: 5;"/>
+                </HBox>
+
+                <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <font><Font size="14.0"/></font>
+                </Label>
+                <TextArea fx:id="descriptionArea" promptText="Package contents description" prefHeight="60.0"
+                          GridPane.columnIndex="1" GridPane.rowIndex="2" style="-fx-background-radius: 5;"/>
+            </GridPane>
+
+            <Separator prefWidth="500.0" />
+
+            <Label text="Origin Address" style="-fx-font-weight: bold;">
+                <font><Font size="16.0"/></font>
+            </Label>
+
+            <ComboBox fx:id="originAddressComboBox" promptText="Select from saved addresses" prefWidth="450.0"
+                      style="-fx-background-radius: 5;"/>
+
+            <Button text="Or Enter New Origin Address" onAction="#handleNewOriginAddress" prefWidth="250.0"
+                    style="-fx-background-color: #95A5A6; -fx-text-fill: white; -fx-background-radius: 5;"/>
+
+            <Separator prefWidth="500.0" />
+
+            <Label text="Destination Address" style="-fx-font-weight: bold;">
+                <font><Font size="16.0"/></font>
+            </Label>
+
+            <GridPane hgap="15.0" vgap="15.0" prefWidth="500.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" prefWidth="150.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="300.0" prefWidth="300.0" />
+                </columnConstraints>
+
+                <Label text="Street:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <font><Font size="14.0"/></font>
+                </Label>
+                <TextField fx:id="destinationStreetField" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                           style="-fx-background-radius: 5;"/>
+
+                <Label text="Zone:" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <font><Font size="14.0"/></font>
+                </Label>
+                <TextField fx:id="destinationZoneField" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                           style="-fx-background-radius: 5;"/>
+
+                <Label text="City:" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <font><Font size="14.0"/></font>
+                </Label>
+                <TextField fx:id="destinationCityField" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                           style="-fx-background-radius: 5;"/>
+
+                <Label text="Postal Code:" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                    <font><Font size="14.0"/></font>
+                </Label>
+                <TextField fx:id="destinationPostalField" GridPane.columnIndex="1" GridPane.rowIndex="3"
+                           style="-fx-background-radius: 5;"/>
+            </GridPane>
+
+            <Separator prefWidth="500.0" />
+
+            <Label text="Additional Services" style="-fx-font-weight: bold;">
+                <font><Font size="16.0"/></font>
+            </Label>
+
+            <VBox spacing="10.0">
+                <CheckBox fx:id="seguroCheckBox" text="Insurance ($5,000)"/>
+                <CheckBox fx:id="expressCheckBox" text="Express Delivery ($8,000)"/>
+                <CheckBox fx:id="firmaCheckBox" text="Signature Required ($2,000)"/>
+                <CheckBox fx:id="prioritarioCheckBox" text="Priority ($6,000)"/>
+            </VBox>
+
+            <Separator prefWidth="500.0" />
+
+            <Label text="Payment Method" style="-fx-font-weight: bold;">
+                <font><Font size="16.0"/></font>
+            </Label>
+
+            <ComboBox fx:id="paymentMethodComboBox" promptText="Select payment method" prefWidth="300.0"
+                      style="-fx-background-radius: 5;"/>
+
+            <Separator prefWidth="500.0" />
+
+            <HBox spacing="20.0" alignment="CENTER_LEFT">
+                <VBox spacing="5.0">
+                    <Label text="Estimated Cost:" style="-fx-font-weight: bold;">
+                        <font><Font size="16.0"/></font>
+                    </Label>
+                    <Label fx:id="estimatedCostLabel" text="0" textFill="#CC5E13">
+                        <font><Font size="20.0"/></font>
+                    </Label>
+                </VBox>
+                <Button text="Calculate Cost" onAction="#handleCalculateCost" prefWidth="140.0" prefHeight="35.0"
+                        style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-background-radius: 5;"/>
+            </HBox>
+
+            <Label fx:id="messageLabel" wrapText="true" prefWidth="500.0">
+                <font><Font size="12.0"/></font>
+            </Label>
+
+            <HBox spacing="15.0" alignment="CENTER">
+                <Button text="Create Order" onAction="#handleCreateOrder" prefWidth="180.0" prefHeight="45.0"
+                        style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;">
+                    <font><Font size="16.0"/></font>
+                </Button>
+                <Button text="Clear Form" onAction="#handleClear" prefWidth="140.0" prefHeight="45.0"
+                        style="-fx-background-color: #95A5A6; -fx-text-fill: white; -fx-background-radius: 5;">
+                    <font><Font size="14.0"/></font>
+                </Button>
+            </HBox>
+
+            <Region prefHeight="30.0"/>
+
+        </VBox>
+    </AnchorPane>
+</ScrollPane>
