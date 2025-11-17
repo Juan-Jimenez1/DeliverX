@@ -5,11 +5,11 @@ public class Address {
     private String street;
     private String city;
     private String type;
-    private String latitude;
-    private String longitude;
+    private double latitude;
+    private double longitude;
 
 
-    public Address(String addressId, String street, String city, String type, String latitude, String longitude) {
+    public Address(String addressId, String street, String city, String type, double latitude, double longitude) {
         this.addressId = addressId;
         this.street = street;
         this.city = city;
@@ -48,19 +48,30 @@ public class Address {
         this.type = type;
     }
 
-    public String getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public String getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    @Override
+    public String toString() {
+        return "Address=" +
+                "Address ID:'" + addressId + '\'' +
+                ", Street='" + street + '\'' +
+                ", City='" + city + '\'' +
+                ", Address Type='" + type + '\'' +
+                ", Latitude=" + latitude +
+                ", Longitude=" + longitude ;
     }
 }

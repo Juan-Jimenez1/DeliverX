@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.deliverx.Controller.DeliveryManController">
+
+    <!-- Side Panel -->
+    <AnchorPane prefHeight="650.0" prefWidth="220.0" style="-fx-background-color: #FFB570;">
+        <Label layoutX="35.0" layoutY="25.0" text="Delivery Panel" style="-fx-font-weight: bold;">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+
+        <Label fx:id="deliveryManNameLabel" layoutX="35.0" layoutY="60.0" text="Welcome, Delivery Man">
+            <font>
+                <Font size="12.0"/>
+            </font>
+        </Label>
+
+        <!-- Status Display -->
+        <HBox layoutX="35.0" layoutY="85.0" spacing="10.0" alignment="CENTER_LEFT">
+            <Label text="Status:" style="-fx-font-weight: bold;"/>
+            <Label fx:id="statusLabel" text="INACTIVE" style="-fx-font-weight: bold;" textFill="#E74C3C"/>
+        </HBox>
+
+        <Separator layoutX="25.0" layoutY="115.0" prefWidth="170.0" />
+
+        <Label layoutX="35.0" layoutY="130.0" text="OPERATIONS" style="-fx-font-weight: bold;">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+
+        <!-- Availability Toggle -->
+        <Button fx:id="toggleAvailabilityButton" layoutX="25.0" layoutY="160.0" mnemonicParsing="false"
+                onAction="#toggleAvailability" prefHeight="40.0" prefWidth="170.0"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"
+                text="Activate Availability"/>
+
+        <Button layoutX="25.0" layoutY="210.0" mnemonicParsing="false" onAction="#viewAssignedOrders"
+                prefHeight="35.0" prefWidth="170.0"
+                style="-fx-background-color: #CC5E13; -fx-text-fill: white; -fx-background-radius: 5;"
+                text="Assigned Orders"/>
+
+        <Button layoutX="25.0" layoutY="255.0" mnemonicParsing="false" onAction="#updateDeliveryStatus"
+                prefHeight="35.0" prefWidth="170.0"
+                style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-background-radius: 5;"
+                text="Update Status"/>
+
+        <Button layoutX="25.0" layoutY="300.0" mnemonicParsing="false" onAction="#viewDeliveryHistory"
+                prefHeight="35.0" prefWidth="170.0"
+                style="-fx-background-color: #FFA726; -fx-text-fill: white; -fx-background-radius: 5;"
+                text="Delivery History"/>
+
+        <Separator layoutX="25.0" layoutY="355.0" prefWidth="170.0" />
+
+        <Label layoutX="35.0" layoutY="375.0" text="PROFILE" style="-fx-font-weight: bold;">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+
+        <Button layoutX="25.0" layoutY="405.0" mnemonicParsing="false" onAction="#manageProfile"
+                prefHeight="35.0" prefWidth="170.0"
+                style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-background-radius: 5;"
+                text="My Profile"/>
+
+        <Button layoutX="25.0" layoutY="450.0" mnemonicParsing="false" onAction="#reportIncident"
+                prefHeight="35.0" prefWidth="170.0"
+                style="-fx-background-color: #FB8C00; -fx-text-fill: white; -fx-background-radius: 5;"
+                text="Report Incident"/>
+
+        <Separator layoutX="25.0" layoutY="505.0" prefWidth="170.0" />
+
+        <Label layoutX="35.0" layoutY="525.0" text="COVERAGE ZONE" style="-fx-font-weight: bold;">
+            <font>
+                <Font size="12.0"/>
+            </font>
+        </Label>
+
+        <Label fx:id="coverageZoneLabel" layoutX="35.0" layoutY="550.0" text="Not assigned" wrapText="true" prefWidth="160.0">
+            <font>
+                <Font size="11.0"/>
+            </font>
+        </Label>
+
+        <Separator layoutX="25.0" layoutY="585.0" prefWidth="170.0" />
+
+        <Button layoutX="25.0" layoutY="600.0" mnemonicParsing="false" onAction="#logout"
+                prefHeight="35.0" prefWidth="170.0"
+                style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-background-radius: 5;"
+                text="Log Out"/>
+    </AnchorPane>
+
+    <!-- Content Area -->
+    <AnchorPane fx:id="contentArea" layoutX="220.0" prefHeight="650.0" prefWidth="580.0" style="-fx-background-color: #FFFFFF;">
+        <VBox alignment="CENTER" layoutX="100.0" layoutY="200.0" prefWidth="380.0" spacing="20.0">
+            <Label text="Delivery Panel" style="-fx-font-weight: bold;">
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Label>
+            <Label text="Manage your deliveries and availability" textAlignment="CENTER" wrapText="true">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Label>
+            <Label text="Activate your availability to receive shipments" textAlignment="CENTER" wrapText="true">
+                <font>
+                    <Font size="12.0"/>
+                </font>
+            </Label>
+        </VBox>
+    </AnchorPane>
+</AnchorPane>

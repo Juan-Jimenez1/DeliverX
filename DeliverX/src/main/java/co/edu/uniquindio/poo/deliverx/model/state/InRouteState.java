@@ -10,7 +10,7 @@ public class InRouteState implements ShipmentState{
 
     @Override
     public String getStateName() {
-        return "IN_ROUTE";
+        return "ROUTE";
     }
 
     @Override

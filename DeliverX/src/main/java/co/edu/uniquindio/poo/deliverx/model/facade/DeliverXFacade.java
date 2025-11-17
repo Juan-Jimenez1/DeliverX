@@ -1,7 +1,9 @@
 package co.edu.uniquindio.poo.deliverx.model.facade;
 
+import co.edu.uniquindio.poo.deliverx.model.ShipmentType;
 import co.edu.uniquindio.poo.deliverx.model.*;
-import co.edu.uniquindio.poo.deliverx.model.Strategy.RateCalculator;
+import co.edu.uniquindio.poo.deliverx.model.Strategy.ExpressStrategy;
+import co.edu.uniquindio.poo.deliverx.model.Strategy.NormalStrategy;
 import co.edu.uniquindio.poo.deliverx.model.Strategy.RateStrategy;
 import co.edu.uniquindio.poo.deliverx.model.decorator.*;
 import co.edu.uniquindio.poo.deliverx.model.observer.ObservableShipment;
@@ -20,7 +22,6 @@ import java.util.List;
 
 public class DeliverXFacade {
     private DeliverX deliverX;
-    private RateCalculator rateCalculator;
     private List<ShipmentObserver> defaultObservers;
 
     public DeliverXFacade() {
@@ -37,7 +38,9 @@ public class DeliverXFacade {
     /**
      * Crea un envío completo
      */
-    public Shipment createCompleteShipment(
+
+    /// CAMBIAR Y AGREGAR POR SEPARADO ENVIO COMPLETO NORMAL Y EXPRESS
+    public Shipment createExpressCompleteShipment(
             String shipmentId,
             Customer customer,
             Address origin,
@@ -45,43 +48,35 @@ public class DeliverXFacade {
             double weight,
             RateStrategy rateStrategy,
             List<String> additionalServices,
-            PaymentMethod paymentMethod) {
+            PaymentMethod pay, ShipmentType type) {
 
         System.out.println("=== CREATING COMPLETE SHIPMENT ===\n");
-
-        // Calcular tarifa base usando Strategy
-        rateCalculator = new RateCalculator(rateStrategy);
-        double baseCost = rateCalculator.calculateRate(origin, destination, weight);
-        System.out.println("  Calculated base rate: $" + baseCost);
-        System.out.println("  Strategy: " + rateCalculator.getStrategyDescription() + "\n");
-
-        // 2. Crear envío básico
+         //Crear envío básico
         Shipment shipment = new Shipment(
                 shipmentId, origin, destination, weight,
-                null, customer, null, LocalDate.now()
-        );
+                null, customer,  LocalDate.now(),type);
+
+
+        // Calcular tarifa base usando Strategy
+        ExpressStrategy expressStrategy = new ExpressStrategy();
+        double baseCost = expressStrategy.calculate(shipment.getOrigin(), shipment.getDestination(), shipment.getWeight());
+        shipment.setPrice(baseCost);
+        System.out.println("  Calculated base rate: $" + baseCost);
+        System.out.println("  Strategy: " + expressStrategy.getStrategyName()+ "\n");
+
 
         // 3. Aplicar servicios adicionales con Decorator
-        ShipmentComponent shipmentComponent = new BasicShipment(shipment, baseCost);
-        shipmentComponent = applyAdditionalServices(shipmentComponent, additionalServices);
+        ShipmentComponent shipmentComponent = new BasicShipment();
 
-        double finalCost = shipmentComponent.calculateCost();
+        Rate rate = new Rate(shipment);
+        rate.applyExtras(rateStrategy, additionalServices);
+
+
+
         System.out.println("  Additional services applied:");
-        System.out.println("  " + shipmentComponent.getDescription());
-        System.out.println("  Total Amount: $" + finalCost + "\n");
+        System.out.println("  " + shipment.getAdditionalServices());
+        System.out.println("  Total Amount: $" + shipment.getPrice() + "\n");
 
-        // 4. Procesar pago usando Adapter
-        Pay payment = processPayment(shipmentId, finalCost, paymentMethod);
-        shipment.setPay(payment);
-
-        if (payment.getResult() == TransactionResult.APPROVED) {
-            System.out.println(" Payment processed successfully\n");
-        } else {
-            System.out.println(" Payment rejected\n");
-            return null;
-        }
-
-        // 5. Configurar observadores para notificaciones
         ObservableShipment observableShipment = new ObservableShipment(shipment);
         for (ShipmentObserver observer : defaultObservers) {
             observableShipment.attach(observer);
@@ -94,8 +89,71 @@ public class DeliverXFacade {
 
         // Notificar observadores
         observableShipment.notifyObservers(null, initialState);
-
+        // Se va a utilizar el mismo id del envio porque estan asociados y facilitar su busqueda.
+        Pay payment= deliverX.processPayment(shipment.getIdShipment(), shipment.getPrice(), pay);
         // 7. Registrar en el sistema
+        shipment.setPay(payment);
+        deliverX.getListShipments().add(shipment);
+        customer.getShipmentList().add(shipment);
+
+        System.out.println("=== SHIPMENT SUCCESSFULLY CREATED ===\n");
+        return shipment;
+    }
+
+    public Shipment createNormalCompleteShipment(
+            String shipmentId,
+            Customer customer,
+            Address origin,
+            Address destination,
+            double weight,
+            RateStrategy rateStrategy,
+            List<String> additionalServices,
+            PaymentMethod pay, ShipmentType type) {
+
+        System.out.println("=== CREATING COMPLETE SHIPMENT ===\n");
+
+        //Crear envío básico
+        Shipment shipment = new Shipment(
+                shipmentId, origin, destination, weight,
+                null, customer,  LocalDate.now(),type);
+
+
+        // Calcular tarifa base usando Strategy
+        NormalStrategy normalEstrategy = new NormalStrategy();
+        double baseCost = normalEstrategy.calculate(shipment.getOrigin(), shipment.getDestination(), shipment.getWeight());
+        shipment.setPrice(baseCost);
+        System.out.println("  Calculated base rate: $" + baseCost);
+        System.out.println("  Strategy: " + normalEstrategy.getStrategyName()+ "\n");
+
+
+        // 3. Aplicar servicios adicionales con Decorator
+        ShipmentComponent shipmentComponent = new BasicShipment();
+
+        Rate rate = new Rate(shipment);
+        rate.applyExtras(rateStrategy, additionalServices);
+
+
+
+        System.out.println("  Additional services applied:");
+        System.out.println("  " + shipment.getAdditionalServices());
+        System.out.println("  Total Amount: $" + shipment.getPrice() + "\n");
+
+        ObservableShipment observableShipment = new ObservableShipment(shipment);
+        for (ShipmentObserver observer : defaultObservers) {
+            observableShipment.attach(observer);
+        }
+
+        // 6. Establecer estado inicial usando State
+        ShipmentState initialState = new RequestedState();
+        shipment.setCurrentState(initialState);
+        System.out.println(" Shipment created in status: " + initialState.getStateName());
+
+        // Notificar observadores
+        observableShipment.notifyObservers(null, initialState);
+        // Se va a utilizar el mismo id del envio porque estan asociados y facilitar su busqueda.
+        Pay payment= deliverX.processPayment(shipment.getIdShipment(), shipment.getPrice(), pay);
+        // 7. Registrar en el sistema
+        shipment.setPay(payment);
         deliverX.getListShipments().add(shipment);
         customer.getShipmentList().add(shipment);
 
@@ -142,24 +200,24 @@ public class DeliverXFacade {
     }
 
     /**
-     * Obtiene una cotización de envío (sin crear el envío)
+     * Obtiene una cotización de envío (sin crear el envío), No creo que sea necesario el método
      */
-    public double getShipmentQuote(
-            Address origin,
-            Address destination,
-            double weight,
-            RateStrategy rateStrategy,
-            List<String> additionalServices) {
+    //public double getShipmentQuote(
+            //Address origin,
+            //Address destination,
+            //double weight,
+            //RateStrategy rateStrategy,
+            //List<String> additionalServices) {
 
-        rateCalculator = new RateCalculator(rateStrategy);
-        double baseCost = rateCalculator.calculateRate(origin, destination, weight);
+        //rateCalculator = new RateCalculator(rateStrategy);
+        //double baseCost = rateCalculator.calculateRate(origin, destination, weight);
 
         // Simular decoradores para calcular costo total
-        ShipmentComponent component = new BasicShipment(null, baseCost);
-        component = applyAdditionalServices(component, additionalServices);
+        //ShipmentComponent component = new BasicShipment(null, baseCost);
+        //component = applyAdditionalServices(component, additionalServices);
 
-        return component.calculateCost();
-    }
+        //return component();
+    //}
 
     /**
      * Cancela un envío si está en estado válido
@@ -188,59 +246,6 @@ public class DeliverXFacade {
         return false;
     }
 
-    private ShipmentComponent applyAdditionalServices(
-            ShipmentComponent component, List<String> services) {
-
-        if (services == null || services.isEmpty()) {
-            return component;
-        }
-
-        for (String service : services) {
-            component = switch (service.toUpperCase()) {
-                case "INSURANCE SHIPMENT", "INSURANCE" -> new InsuranceDecorator(component);
-                case "FRAGILE SHIPMENT", "FRAGILE" -> new FragileDecorator(component);
-                case "SIGNATURE SHIPMENT", "SIGNATURE" -> new SignatureRequiredDecorator(component);
-                case "PRIORITY SHIPMENT", "PRIORITY" -> new PriorityDecorator(component);
-                case "SPECIAL PACKAGING", "PACKAGING" -> new SpecialPackagingDecorator(component);
-                default -> component;
-            };
-        }
-
-        return component;
-    }
-
-//    private Pay processPayment(String paymentId, double amount, PaymentMethod method) {
-//        System.out.println(" Processing payment...");
-//        PaymentProcessor processor = PaymentAdapterFactory.getAdapter(method);
-//        return processor.processPayment(paymentId, amount, method);
-//    }
-
-private Pay processPayment(String paymentId, double amount, PaymentMethod method) {
-    System.out.println(" Processing payment via " + method + ": $" + amount);
-
-    TransactionResult result;
-
-    if (method == PaymentMethod.CASH) {
-        // Efectivo requiere confirmación física
-        result = TransactionResult.PENDING;
-        System.out.println(" Cash payment registered - Pending confirmation");
-    } else {
-        // Tarjetas de crédito/débito se aprueban inmediatamente
-        result = TransactionResult.APPROVED;
-        System.out.println( method + " payment approved");
-    }
-
-    // Crear el pago con todos los parámetros requeridos
-    Pay payment = new Pay(
-            paymentId,
-            method,
-            amount,
-            LocalDate.now(),
-            result
-    );
-
-    return payment;
-}
 
     public DeliverX getDeliverX() {
         return deliverX;

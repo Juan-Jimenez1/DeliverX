@@ -9,7 +9,7 @@ public class InRouteDeliveryState implements DeliveryManState{
 
     @Override
     public String getStateName() {
-        return "IN ROUTE";
+        return "ROUTE";
     }
 
     @Override
