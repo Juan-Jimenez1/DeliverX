@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.deliverx.controller.DeliveryUpdateStatusController">
+    <VBox layoutX="20.0" layoutY="20.0" prefWidth="560.0" spacing="15.0">
+        <Label text="Update Shipment Status" style="-fx-font-weight: bold; -fx-font-family: 'Arial'; -fx-font-size: 20;"/>
+
+        <HBox spacing="10.0" alignment="CENTER_LEFT">
+            <Label text="Select Shipment:" style="-fx-font-weight: bold;"/>
+            <ComboBox fx:id="orderComboBox" prefWidth="300.0" onAction="#handleOrderSelected"
+                      style="-fx-background-radius: 5;"/>
+        </HBox>
+
+        <VBox spacing="10.0" style="-fx-border-color: #cccccc; -fx-border-radius: 5; -fx-padding: 15;">
+            <Label text="Shipment Details" style="-fx-font-weight: bold; -fx-font-size: 14;"/>
+
+            <GridPane hgap="10.0" vgap="10.0">
+                <columnConstraints>
+                    <ColumnConstraints prefWidth="120.0"/>
+                    <ColumnConstraints prefWidth="300.0"/>
+                </columnConstraints>
+
+                <rowConstraints>
+                    <RowConstraints prefHeight="30.0"/>
+                    <RowConstraints prefHeight="30.0"/>
+                    <RowConstraints prefHeight="30.0"/>
+                </rowConstraints>
+
+                <Label text="Shipment ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;"/>
+                <Label fx:id="orderIdLabel" text="N/A" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="Destination:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;"/>
+                <Label fx:id="destinationLabel" text="N/A" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Current Status:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold;"/>
+                <Label fx:id="currentStatusLabel" text="N/A" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                       style="-fx-font-weight: bold; -fx-text-fill: #2C3E50;"/>
+            </GridPane>
+        </VBox>
+
+        <VBox spacing="10.0" style="-fx-border-color: #cccccc; -fx-border-radius: 5; -fx-padding: 15;">
+            <Label text="Update Status" style="-fx-font-weight: bold; -fx-font-size: 14;"/>
+
+            <VBox spacing="8.0">
+                <HBox spacing="15.0">
+                    <RadioButton fx:id="asignadoRadio" text="Assign to Delivery"/>
+                    <RadioButton fx:id="enRutaRadio" text="In Route"/>
+                </HBox>
+                <HBox spacing="15.0">
+                    <RadioButton fx:id="entregadoRadio" text="Delivered"/>
+                    <RadioButton fx:id="incidenciaRadio" text="Cancel"/>
+                </HBox>
+            </VBox>
+
+            <Label text="Notes/Observations:" style="-fx-font-weight: bold;"/>
+            <TextArea fx:id="notesArea" prefHeight="80.0" promptText="Enter any notes or observations about this status change..."
+                      style="-fx-background-radius: 5;"/>
+        </VBox>
+
+        <Label fx:id="messageLabel" style="-fx-font-weight: bold;"/>
+
+        <HBox spacing="15.0" alignment="CENTER_RIGHT">
+            <Button text="Cancel" onAction="#handleCancel" prefWidth="100.0"
+                    style="-fx-background-color: #95A5A6; -fx-text-fill: white; -fx-background-radius: 5;"/>
+            <Button text="Update Status" onAction="#handleUpdateStatus" prefWidth="120.0"
+                    style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-background-radius: 5;"/>
+        </HBox>
+    </VBox>
+</AnchorPane>

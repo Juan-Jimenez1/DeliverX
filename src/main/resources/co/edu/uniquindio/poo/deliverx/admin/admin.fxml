@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.deliverx.controller.AdminController">
+
+    <!-- Sidebar Navigation -->
+    <AnchorPane prefHeight="650.0" prefWidth="250.0" style="-fx-background-color: #CC5E13;">
+        <VBox alignment="TOP_CENTER" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
+            </VBox.margin>
+
+            <!-- Header -->
+            <Label style="-fx-font-weight: bold; -fx-text-fill: white;" text="Admin Panel">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+            </Label>
+
+            <Label fx:id="adminNameLabel" style="-fx-text-fill: white; -fx-font-size: 12px;" text="Welcome, Admin" />
+
+            <Separator prefWidth="210.0" style="-fx-background-color: #E67E50;" />
+
+            <!-- Management Section -->
+            <Label style="-fx-font-weight: bold; -fx-text-fill: white;" text="MANAGEMENT">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Label>
+
+            <VBox alignment="CENTER_LEFT" spacing="10.0">
+                <Button onAction="#loadRegisterDelivery" prefHeight="35.0" prefWidth="210.0"
+                        style="-fx-background-color: #E67E50; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"
+                        text="Register Delivery Man" />
+
+                <Button onAction="#loadRegisterUser" prefHeight="35.0" prefWidth="210.0"
+                        style="-fx-background-color: #E67E50; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"
+                        text="Register User" />
+
+                <Button onAction="#loadUserManagement" prefHeight="35.0" prefWidth="210.0"
+                        style="-fx-background-color: #E67E50; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"
+                        text="Manage Users" />
+
+                <Button onAction="#loadDeliveryManagement" prefHeight="35.0" prefWidth="210.0"
+                        style="-fx-background-color: #E67E50; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"
+                        text="Manage Delivery Men" />
+
+                <Button onAction="#loadEnvioManagement" prefHeight="35.0" prefWidth="210.0"
+                        style="-fx-background-color: #E67E50; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"
+                        text="Manage Shipments" />
+            </VBox>
+
+            <Separator prefWidth="210.0" style="-fx-background-color: #E67E50;" />
+
+            <!-- Reports Section -->
+            <Label style="-fx-font-weight: bold; -fx-text-fill: white;" text="REPORTS">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Label>
+
+            <VBox alignment="CENTER_LEFT" spacing="10.0">
+                <Button onAction="#loadMetrics" prefHeight="35.0" prefWidth="210.0"
+                        style="-fx-background-color: #B8421F; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"
+                        text="View Metrics" />
+
+                <Button onAction="#loadReports" prefHeight="35.0" prefWidth="210.0"
+                        style="-fx-background-color: #B8421F; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"
+                        text="Generate Reports" />
+            </VBox>
+
+            <!-- Spacer to push logout to bottom -->
+            <VBox VBox.vgrow="ALWAYS" />
+
+            <!-- Logout Button -->
+            <Button fx:id="logout" onAction="#logout" prefHeight="35.0" prefWidth="210.0"
+                    style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;"
+                    text="Logout" />
+        </VBox>
+    </AnchorPane>
+
+    <!-- Dynamic Content Area -->
+    <AnchorPane fx:id="contentArea" layoutX="250.0" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #FFFFFF;">
+        <!-- Default welcome content -->
+        <VBox alignment="CENTER" layoutX="100.0" layoutY="200.0" prefWidth="450.0" spacing="20.0">
+            <Label style="-fx-font-weight: bold;" text="Welcome to Admin Panel">
+                <font>
+                    <Font size="24.0" />
+                </font>
+            </Label>
+            <Label text="Select an option from the side menu" textAlignment="CENTER" wrapText="true">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Label>
+        </VBox>
+    </AnchorPane>
+</AnchorPane>
