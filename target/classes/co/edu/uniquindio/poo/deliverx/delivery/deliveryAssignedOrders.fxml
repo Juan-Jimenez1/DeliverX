@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.deliverx.controller.DeliveryAssignedOrdersController">
+
+    <VBox layoutX="25.0" layoutY="25.0" prefWidth="530.0" spacing="15.0">
+
+        <Label text="My Assigned Orders" style="-fx-font-weight: bold;">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+
+        <HBox spacing="10.0" alignment="CENTER_LEFT">
+            <VBox spacing="5.0">
+                <Label text="Filter by Status:"/>
+                <ComboBox fx:id="statusFilterComboBox" promptText="All" prefWidth="130.0"
+                          style="-fx-background-radius: 5;"/>
+            </VBox>
+
+            <VBox spacing="5.0">
+                <Label text="Search:"/>
+                <TextField fx:id="searchField" promptText="Order ID" prefWidth="130.0"
+                           style="-fx-background-radius: 5;"/>
+            </VBox>
+
+            <VBox spacing="18.0">
+                <Label text=" "/>
+                <HBox spacing="5.0">
+                    <Button text="Search" onAction="#handleSearch" prefWidth="70.0"
+                            style="-fx-background-color: #CC5E13; -fx-text-fill: white; -fx-background-radius: 5;"/>
+                    <Button text="Refresh" onAction="#handleRefresh" prefWidth="70.0"
+                            style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-background-radius: 5;"/>
+                </HBox>
+            </VBox>
+        </HBox>
+
+        <TableView fx:id="assignedOrdersTable" prefHeight="380.0" prefWidth="530.0">
+            <columns>
+                <TableColumn fx:id="orderIdColumn" text="Order ID" prefWidth="100.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="idEnvio" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="destinationColumn" text="Destination" prefWidth="150.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="destino" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="statusColumn" text="Status" prefWidth="100.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="estado" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="zoneColumn" text="Zone" prefWidth="90.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="zona" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="dateColumn" text="Date" prefWidth="90.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="fechaCreacion" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+
+        <HBox spacing="10.0" alignment="CENTER">
+            <Button text="View Details" onAction="#handleViewDetails" prefWidth="120.0"
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 5;"/>
+            <Button text="Start Delivery" onAction="#handleStartDelivery" prefWidth="120.0"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;"/>
+            <Button text="Complete" onAction="#handleCompleteDelivery" prefWidth="110.0"
+                    style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-background-radius: 5;"/>
+            <Button text="Report Issue" onAction="#handleReportIssue" prefWidth="110.0"
+                    style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-background-radius: 5;"/>
+        </HBox>
+
+        <Separator prefWidth="530.0"/>
+
+        <HBox spacing="20.0" alignment="CENTER_LEFT">
+            <VBox spacing="5.0">
+                <Label text="Total Assigned:" style="-fx-font-weight: bold;"/>
+                <Label fx:id="totalAssignedLabel" text="0" style="-fx-font-size: 18px; -fx-font-weight: bold;" textFill="#CC5E13"/>
+            </VBox>
+            <VBox spacing="5.0">
+                <Label text="In Progress:" style="-fx-font-weight: bold;"/>
+                <Label fx:id="inProgressLabel" text="0" style="-fx-font-size: 18px; -fx-font-weight: bold;" textFill="#FF9800"/>
+            </VBox>
+            <VBox spacing="5.0">
+                <Label text="Completed Today:" style="-fx-font-weight: bold;"/>
+                <Label fx:id="completedTodayLabel" text="0" style="-fx-font-size: 18px; -fx-font-weight: bold;" textFill="#4CAF50"/>
+            </VBox>
+        </HBox>
+
+        <Label fx:id="statusLabel" textFill="#2C3E50">
+            <font><Font size="12.0"/></font>
+        </Label>
+    </VBox>
+</AnchorPane>
