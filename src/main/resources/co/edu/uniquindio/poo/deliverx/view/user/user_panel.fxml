@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.deliverx.Controller.UserPanelController">
+
+    <!-- Panel lateral -->
+    <AnchorPane prefHeight="650.0" prefWidth="220.0" style="-fx-background-color: #E8F5E9;">
+        <Label layoutX="40.0" layoutY="30.0" text="Panel de Usuario" style="-fx-font-weight: bold;">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+
+        <Label fx:id="userNameLabel" layoutX="40.0" layoutY="65.0" text="Bienvenido, Usuario">
+            <font>
+                <Font size="12.0"/>
+            </font>
+        </Label>
+
+        <Separator layoutX="25.0" layoutY="100.0" prefWidth="170.0" />
+
+        <Label layoutX="40.0" layoutY="120.0" text="OPCIONES" style="-fx-font-weight: bold;">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+
+        <Button layoutX="25.0" layoutY="150.0" mnemonicParsing="false" onAction="#loadProfile"
+                prefHeight="35.0" prefWidth="170.0" text="Mi Perfil"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;"/>
+
+        <Button layoutX="25.0" layoutY="195.0" mnemonicParsing="false" onAction="#loadOrders"
+                prefHeight="35.0" prefWidth="170.0" text="Mis Pedidos"
+                style="-fx-background-color: #66BB6A; -fx-text-fill: white; -fx-background-radius: 5;"/>
+
+        <Button layoutX="25.0" layoutY="240.0" mnemonicParsing="false" onAction="#loadAddresses"
+                prefHeight="35.0" prefWidth="170.0" text="Mis Direcciones"
+                style="-fx-background-color: #81C784; -fx-text-fill: white; -fx-background-radius: 5;"/>
+
+        <Button layoutX="25.0" layoutY="285.0" mnemonicParsing="false" onAction="#loadNewOrder"
+                prefHeight="35.0" prefWidth="170.0" text="Nuevo Pedido"
+                style="-fx-background-color: #2E7D32; -fx-text-fill: white; -fx-background-radius: 5;"/>
+
+        <Separator layoutX="25.0" layoutY="550.0" prefWidth="170.0" />
+
+        <Button layoutX="25.0" layoutY="580.0" mnemonicParsing="false" onAction="#logout"
+                prefHeight="35.0" prefWidth="170.0" style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-background-radius: 5;"
+                text="Cerrar Sesión" />
+    </AnchorPane>
+
+    <!-- Área de contenido -->
+    <AnchorPane fx:id="contentArea" layoutX="220.0" prefHeight="650.0" prefWidth="580.0" style="-fx-background-color: #FFFFFF;">
+        <VBox alignment="CENTER" layoutX="100.0" layoutY="200.0" prefWidth="380.0" spacing="20.0">
+            <Label text="Bienvenido a DeliverX" style="-fx-font-weight: bold;">
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Label>
+            <Label text="Tu plataforma de entregas confiable" textAlignment="CENTER" wrapText="true">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Label>
+            <Label text="Selecciona una opción del menú lateral para comenzar" textAlignment="CENTER" wrapText="true">
+                <font>
+                    <Font size="12.0"/>
+                </font>
+            </Label>
+        </VBox>
+    </AnchorPane>
+</AnchorPane>
