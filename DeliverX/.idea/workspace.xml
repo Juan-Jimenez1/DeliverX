@@ -37,6 +37,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.App.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -96,7 +97,8 @@
       <workItem from="1763315284060" duration="23781000" />
       <workItem from="1763347913598" duration="922000" />
       <workItem from="1763352135255" duration="1515000" />
-      <workItem from="1763389545325" duration="306000" />
+      <workItem from="1763389545325" duration="336000" />
+      <workItem from="1763389905356" duration="468000" />
     </task>
     <servers />
   </component>
