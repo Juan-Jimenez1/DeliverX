@@ -58,7 +58,7 @@ public class PdfShipmentsPerMonthReportGenerator {
                 content[0].endText();
 
                 content[0].close();
-                document.save("\\C:\\Users\\Asus\\lol\\" + filename + ".pdf");
+                document.save("C:\\Users\\JUAN JOSE\\OneDrive\\Desktop\\" + filename + ".pdf");
                 return;
             }
 
@@ -165,7 +165,7 @@ public class PdfShipmentsPerMonthReportGenerator {
             content[0].endText();
 
             content[0].close();
-            document.save("C:\\Users\\Asus\\lol\\" + filename + ".pdf");
+            document.save("C:\\Users\\JUAN JOSE\\OneDrive\\Desktop\\" + filename + ".pdf");
             System.out.println("Admin PDF report generated: " + filename);
 
         } catch (IOException e) {

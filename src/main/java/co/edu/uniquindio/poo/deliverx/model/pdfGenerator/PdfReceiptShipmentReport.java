@@ -101,7 +101,7 @@ public class PdfReceiptShipmentReport {
                 content.endText();
             }
 
-            document.save("C:\\Users\\Asus\\lol\\" + filename + ".pdf");
+            document.save("C:\\Users\\JUAN JOSE\\OneDrive\\Desktop\\" + filename + ".pdf");
             System.out.println("PDF receipt generated: " + filename);
 
         } catch (IOException e) {
